@@ -1,0 +1,3139 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>The Begotten God — The Complete Narrative · Book of Elisha</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<template id="__bundler_thumbnail" data-bg-color="#0d0d0d">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0d0d0d"/>
+    <circle cx="600" cy="400" r="170" fill="#8B1A1A" stroke="#4a0e0e" stroke-width="6"/>
+    <circle cx="600" cy="400" r="140" fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.6"/>
+    <text x="600" y="460" text-anchor="middle" font-family="Georgia, serif" font-size="180" font-style="italic" fill="#C9A84C" opacity="0.95">E</text>
+    <text x="600" y="640" text-anchor="middle" font-family="monospace" font-size="22" letter-spacing="8" fill="#C9A84C">THE BEGOTTEN GOD</text>
+  </svg>
+</template>
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  /* =========================================================================
+     COMPLETE NARRATIVE — combined shell
+     Each part's original <style> block is concatenated below. Rules that
+     repeat across parts are identical definitions; part-specific rules
+     (triads, tablets, diptychs) live under uniquely named classes.
+     ========================================================================= */
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(201,168,76,0.18), transparent 65%),
+      radial-gradient(ellipse 90% 60% at 50% 120%, rgba(139,26,26,0.06), transparent 70%),
+      var(--bg);
+    color: var(--fg); min-height: 100vh; position: relative;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .55;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSdib2Utbm9pc2UnPjxmZVR1cmJ1bGVuY2UgdHlwZT0nZnJhY3RhbE5vaXNlJyBiYXNlRnJlcXVlbmN5PScuODUnIG51bU9jdGF2ZXM9JzInIHNlZWQ9JzcnLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9JzAgMCAwIDAgMC43OSAgMCAwIDAgMCAwLjY4ICAwIDAgMCAwIDAuNDUgIDAgMCAwIC4wNyAwJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoJTIzYm9lLW5vaXNlKScvPjwvc3ZnPg==");
+    mix-blend-mode: screen;
+  }
+
+  /* Corner brackets — fixed to viewport */
+  .bracket { position: fixed; width: 64px; height: 64px; z-index: 3; pointer-events: none; opacity: .85; }
+  .bracket.tl { top: 28px; left: 28px; }
+  .bracket.tr { top: 28px; right: 28px; transform: scaleX(-1); }
+  .bracket.bl { bottom: 28px; left: 28px; transform: scaleY(-1); }
+  .bracket.br { bottom: 28px; right: 28px; transform: scale(-1, -1); }
+  .bracket svg { width: 100%; height: 100%; display: block; }
+
+  /* =====================================================================
+   BOE STICKY NAVBAR + CONTROL-PANEL CSS VARIABLES + ACCESSIBILITY MODE
+   ===================================================================== */
+
+  /* Tweakable variables — all driven by the control panel JSON below.
+     Defaults below mirror the JSON; JS rewrites these on the :root if user changes anything. */
+  :root {
+    --tw-logo-url: url('assets/wax-seal-logo.png');
+    --tw-color-gold: #C9A84C;
+    --tw-color-crimson: #8B1A1A;
+    --tw-color-parchment: #F5F0E8;
+    --tw-color-bg: #0d0d0d;
+    --tw-font-display: 'Cormorant Garamond', Georgia, serif;
+    --tw-font-body: 'EB Garamond', Georgia, serif;
+    --tw-font-mono: 'Space Mono', ui-monospace, monospace;
+    --tw-nav-fontsize: 12px;       /* nav label size */
+    --tw-body-fontsize: 18px;      /* body prose */
+    --tw-headline-scale: 1;        /* multiplier on headlines */
+    --tw-weight-base: 600;         /* navbar/labels — semibold per user request */
+    --tw-weight-prose: 400;        /* body weight */
+    /* Brighter dim gold — permanently legible per request */
+  }
+
+  /* Sticky three-zone navbar */
+  .boe-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 5;
+    background: linear-gradient(to bottom, rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.78) 70%, rgba(13,13,13,0) 100%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    pointer-events: auto;
+  }
+  .boe-nav__inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+    padding: 14px 80px 18px;
+    max-width: 1600px; margin: 0 auto;
+  }
+  .boe-nav__left { display: flex; align-items: center; gap: 14px; justify-self: start; }
+  .boe-nav__brand {
+    font-family: var(--tw-font-mono);
+    font-size: var(--tw-nav-fontsize);
+    font-weight: var(--tw-weight-base);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--tw-color-gold);
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: color .25s ease, text-shadow .25s ease;
+  }
+  .boe-nav__brand:hover, .boe-nav__brand:focus-visible {
+    color: var(--tw-color-gold);
+    text-shadow: 0 0 18px rgba(201,168,76,0.55);
+    outline: none;
+  }
+  .boe-nav__brand .mark { color: var(--tw-color-gold); }
+  .boe-nav__brand .ext { font-size: 0.78em; opacity: 0.7; letter-spacing: 0; }
+  .boe-nav__divider {
+    width: 22px; height: 1px;
+    background: linear-gradient(90deg, transparent, #b08c3e, transparent);
+  }
+  .boe-nav__subtitle {
+    font-family: var(--tw-font-mono);
+    font-size: calc(var(--tw-nav-fontsize) - 1px);
+    font-weight: var(--tw-weight-base);
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #b08c3e;
+  }
+  .boe-nav__seal {
+    display: inline-grid; place-items: center;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    transition: transform .35s cubic-bezier(.2,.6,.2,1), filter .35s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .boe-nav__seal img {
+    width: 100%; height: 100%; display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 14px rgba(139,26,26,0.35));
+  }
+  .boe-nav__seal:hover { transform: translateY(-1px) rotate(-2deg); }
+  .boe-nav__seal:hover img { filter: drop-shadow(0 6px 22px rgba(139,26,26,0.65)); }
+  .boe-nav__seal:focus-visible { outline: 1px solid var(--tw-color-gold); outline-offset: 4px; }
+  .boe-nav__parts {
+    display: flex; align-items: center; gap: 14px; justify-self: end;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .boe-nav__parts::-webkit-scrollbar { display: none; }
+  .boe-nav__parts a {
+    font-family: var(--tw-font-mono);
+    font-size: calc(var(--tw-nav-fontsize) - 1px);
+    font-weight: var(--tw-weight-base);
+    letter-spacing: 0.18em;
+    color: #b08c3e;
+    text-decoration: none;
+    padding: 6px 4px 4px;
+    border-bottom: 1px solid transparent;
+    transition: color .25s ease, border-color .25s ease;
+  }
+  .boe-nav__parts a:hover { color: var(--tw-color-gold); }
+  .boe-nav__parts a.is-active {
+    color: var(--tw-color-gold);
+    border-bottom-color: var(--tw-color-gold);
+  }
+  .boe-nav__parts a:focus-visible { outline: 1px solid var(--tw-color-gold); outline-offset: 3px; }
+  @media (max-width: 820px) {
+    .boe-nav__inner { padding: 10px 16px 12px; gap: 12px; }
+    .boe-nav__brand { font-size: 10px; letter-spacing: 0.22em; }
+    .boe-nav__subtitle, .hide-md { display: none !important; }
+    .boe-nav__seal { width: 44px; height: 44px; }
+    .boe-nav__parts { gap: 10px; }
+    .boe-nav__parts a { font-size: 10px; letter-spacing: 0.14em; }
+  }
+  @media (max-width: 480px) {
+    .boe-nav__brand { font-size: 9px; letter-spacing: 0.2em; }
+    .boe-nav__brand span:not(.mark):not(.ext) { display: none; }
+    .boe-nav__parts a { font-size: 9px; padding: 4px 2px; }
+    .boe-nav__seal { width: 38px; height: 38px; }
+  }
+  body { padding-top: 84px; }
+  @media (max-width: 820px) { body { padding-top: 64px; } }
+
+  /* Individual part wrapper */
+  .part {
+    position: relative;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 150px 80px 140px;
+    z-index: 1;
+  }
+  .part:first-of-type { padding-top: 180px; }
+  .part:not(:first-of-type) { padding-top: 240px; }
+
+  /* ---- Inter-part breathing room: the pause between movements ---- */
+  .interlude {
+    position: relative;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 80px 80px 60px;
+    text-align: center;
+    z-index: 1;
+  }
+  .interlude::before, .interlude::after {
+    content: ""; display: block; width: 1px; height: 80px;
+    margin: 0 auto; background: linear-gradient(180deg, transparent, var(--accent-dim), transparent);
+    opacity: .7;
+  }
+  .interlude .diamond {
+    margin: 40px auto;
+    width: 28px; height: 28px;
+    display: grid; place-items: center;
+    position: relative;
+  }
+  .interlude .diamond::before {
+    content: ""; position: absolute; inset: 0;
+    border: 1px solid var(--accent);
+    transform: rotate(45deg);
+    opacity: .9;
+  }
+  .interlude .diamond::after {
+    content: ""; position: absolute; width: 8px; height: 8px;
+    background: var(--accent);
+    transform: rotate(45deg);
+    opacity: .9;
+  }
+  .interlude .triplet {
+    display: flex; gap: 24px; justify-content: center; align-items: center;
+    color: var(--accent); font-size: 10px; letter-spacing: 0.6em;
+    margin: 24px 0;
+  }
+  .interlude .triplet .d { color: var(--accent); }
+  .interlude .triplet .d.faint { color: var(--accent-dim); opacity: .6; }
+  .interlude .coming {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--accent-dim);
+    margin-top: 20px;
+  }
+  .interlude .coming .next {
+    display: block; margin-top: 12px;
+    font-family: var(--font-display); font-style: italic; font-size: 20px;
+    letter-spacing: 0.02em; color: var(--fg-muted); text-transform: none;
+  }
+
+  /* Table of contents at top */
+  .toc {
+    max-width: 780px; margin: 0 auto; padding: 200px 80px 80px;
+    text-align: center; position: relative; z-index: 1;
+  }
+  .toc .title {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.44em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 32px;
+    display: flex; align-items: center; justify-content: center; gap: 18px;
+  }
+  .toc .title .bar { flex: 0 0 56px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
+  .toc .title .bar.right { background: linear-gradient(90deg, var(--accent), transparent); }
+  .toc h1 {
+    font-family: var(--font-display); font-size: 96px; font-weight: 300;
+    line-height: 0.98; letter-spacing: -0.02em; color: var(--fg);
+    margin: 0 0 28px; text-wrap: balance;
+  }
+  .toc h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .toc .subtitle {
+    font-family: var(--font-display); font-style: italic; font-size: 26px;
+    color: var(--fg-muted); margin: 0 0 56px;
+  }
+  .toc .emdash {
+    width: 80px; height: 1px; background: var(--accent);
+    margin: 48px auto;
+  }
+  .toc ol {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; gap: 0;
+    text-align: left; max-width: 520px; margin-inline: auto;
+  }
+  .toc ol li {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: baseline;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .toc ol li:last-child { border-bottom: none; }
+  .toc ol li a {
+    display: contents;
+    color: inherit; text-decoration: none;
+  }
+  .toc ol li a:hover .name { color: var(--accent); }
+  .toc ol li .roman {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.28em;
+    color: var(--accent); text-transform: uppercase;
+  }
+  .toc ol li .name {
+    font-family: var(--font-display); font-size: 22px; font-style: italic;
+    color: var(--fg); transition: color .25s ease;
+  }
+  .toc ol li .dot {
+    font-family: var(--font-mono); color: var(--accent-dim); font-size: 9px;
+  }
+  .toc .colophon {
+    margin-top: 80px;
+    font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.36em;
+    text-transform: uppercase; color: var(--fg-faint);
+  }
+
+  /* Scroll-progress indicator — a thin gold rule at the top of the viewport */
+  .progress {
+    position: fixed; top: 0; left: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent), #e6c870);
+    z-index: 10; width: 0%; pointer-events: none;
+    box-shadow: 0 0 12px rgba(201,168,76,0.6);
+  }
+
+  /* Bottom-right part indicator on scroll */
+  .part-pill {
+    position: fixed; bottom: 28px; right: 28px; z-index: 4;
+    padding: 10px 16px;
+    background: rgba(20,20,20,0.82);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--border-soft);
+    font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--accent);
+    pointer-events: none;
+    opacity: 0; transition: opacity .4s ease;
+  }
+  .part-pill.visible { opacity: 1; }
+  .part-pill .name {
+    display: block; margin-top: 4px;
+    font-family: var(--font-display); font-style: italic; font-size: 14px;
+    color: var(--fg-muted); text-transform: none; letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 820px) {
+    .masthead { padding: 20px 24px 0; font-size: 9px; }
+    .bracket { width: 44px; height: 44px; }
+    .bracket.tl, .bracket.tr { top: 16px; }
+    .bracket.tl, .bracket.bl { left: 16px; }
+    .bracket.tr, .bracket.br { right: 16px; }
+    .bracket.bl, .bracket.br { bottom: 16px; }
+    .part { padding: 110px 28px 120px; }
+    .part:not(:first-of-type) { padding-top: 180px; }
+    .interlude { padding: 40px 28px 40px; }
+    .toc { padding: 130px 28px 60px; }
+    .toc h1 { font-size: 58px; }
+    .toc ol li { grid-template-columns: 40px 1fr auto; gap: 12px; }
+    .toc ol li .name { font-size: 18px; }
+    .part-pill { bottom: 14px; right: 14px; padding: 8px 12px; }
+  }
+</style>
+
+<style>
+  /* ---------- Part-specific style blocks (concatenated) ---------- */
+/* === Part 1 - The Plan Before Creation.html === */
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(201,168,76,0.10), transparent 65%),
+      radial-gradient(ellipse 90% 60% at 50% 120%, rgba(139,26,26,0.05), transparent 70%),
+      var(--bg);
+    color: var(--fg);
+    min-height: 100vh;
+    position: relative;
+  }
+  /* Parchment grain — atmospheric air */
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .55;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSdib2Utbm9pc2UnPjxmZVR1cmJ1bGVuY2UgdHlwZT0nZnJhY3RhbE5vaXNlJyBiYXNlRnJlcXVlbmN5PScuODUnIG51bU9jdGF2ZXM9JzInIHNlZWQ9JzcnLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9JzAgMCAwIDAgMC43OSAgMCAwIDAgMCAwLjY4ICAwIDAgMCAwIDAuNDUgIDAgMCAwIC4wNyAwJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoJTIzYm9lLW5vaXNlKScvPjwvc3ZnPg==");
+    mix-blend-mode: screen;
+  }
+
+  /* Corner brackets — the signature */
+  .bracket { position: fixed; width: 64px; height: 64px; z-index: 3; pointer-events: none; opacity: .85; }
+  .bracket.tl { top: 28px; left: 28px; }
+  .bracket.tr { top: 28px; right: 28px; transform: scaleX(-1); }
+  .bracket.bl { bottom: 28px; left: 28px; transform: scaleY(-1); }
+  .bracket.br { bottom: 28px; right: 28px; transform: scale(-1, -1); }
+  .bracket svg { width: 100%; height: 100%; display: block; }
+
+  /* Sticky running head + folio */
+  .masthead {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 34px 108px 0;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--accent-dim);
+    pointer-events: none;
+  }
+  .masthead .left, .masthead .right { display: flex; gap: 18px; align-items: center; }
+  .masthead .mark { color: var(--accent); }
+
+  .page {
+    position: relative;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 150px 80px 140px;
+    z-index: 1;
+  }
+
+  /* Section opener */
+  .section-opener { text-align: center; margin-bottom: 72px; padding: 56px 0 40px; }
+  .section-opener .num {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.4em;
+    color: var(--accent); margin-bottom: 28px; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .section-opener .num .glyph { color: var(--accent); }
+  .section-opener .num .rule { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
+  .section-opener .num .rule.right { background: linear-gradient(90deg, var(--accent), transparent); }
+  .section-opener h1 {
+    font-family: var(--font-display); font-size: 88px; font-weight: 300;
+    line-height: 1.02; letter-spacing: -0.015em; color: var(--fg); margin: 0;
+    text-wrap: balance;
+  }
+  .section-opener h1 em {
+    font-style: italic; color: var(--accent); font-weight: 400;
+  }
+  .section-opener .em-dash {
+    width: 80px; height: 1px; background: var(--accent); margin: 40px auto;
+  }
+  .section-opener .sub {
+    font-family: var(--font-display); font-style: italic; font-size: 26px;
+    color: var(--fg-muted); margin: 0; letter-spacing: 0.005em;
+  }
+
+  /* Epigraph */
+  .epigraph {
+    max-width: 48ch; margin: 56px auto 88px; text-align: center;
+    font-family: var(--font-display); font-style: italic; font-size: 24px;
+    line-height: 1.5; color: var(--fg);
+  }
+  .epigraph cite {
+    display: block; margin-top: 24px; font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--accent); font-style: normal;
+  }
+
+  /* Prose */
+  .prose { font-family: var(--font-body); font-size: 19px; line-height: 1.78; color: var(--fg); }
+  .prose p { margin: 0 0 26px; text-wrap: pretty; }
+  .prose .dropcap::first-letter {
+    font-family: var(--font-display); font-size: 102px; font-weight: 400;
+    float: left; line-height: 0.82; padding: 14px 16px 0 0; color: var(--accent);
+  }
+  .prose em.greek { color: var(--accent); font-style: italic; }
+  .prose .translit {
+    font-family: var(--font-mono); font-size: 0.76em; letter-spacing: 0.09em;
+    color: var(--fg-faint); text-transform: uppercase; margin: 0 0.2em;
+  }
+  .prose em.stress { color: var(--fg); font-style: italic; font-family: var(--font-display); font-size: 1.05em; }
+
+  /* A single-line axial beat — used for the volta sentences */
+  .axial {
+    display: block; margin: 44px auto; max-width: 38ch;
+    font-family: var(--font-display); font-weight: 400; font-size: 38px;
+    line-height: 1.2; color: var(--fg); text-align: center;
+    letter-spacing: -0.005em;
+  }
+  .axial em { color: var(--accent); font-style: italic; }
+
+  /* Ornamental divider */
+  .ornament {
+    text-align: center; margin: 72px 0; color: var(--accent); opacity: 0.6;
+    font-size: 14px; letter-spacing: 1em; padding-left: 1em;
+  }
+
+  /* Genetic Key — approved pattern */
+  .genetic-key {
+    position: relative;
+    margin: 88px 0; padding: 48px 56px 44px 124px;
+    background:
+      linear-gradient(180deg, rgba(201,168,76,0.045) 0%, transparent 20%, transparent 80%, rgba(201,168,76,0.03) 100%),
+      #141414;
+    box-shadow:
+      0 0 0 1px #2a2a2a,
+      inset 0 1px 0 #C9A84C,
+      inset 0 -1px 0 #8a6f2e,
+      0 28px 70px -30px rgba(0,0,0,0.95);
+  }
+  .genetic-key::before {
+    content:""; position:absolute; inset:-8px; pointer-events:none;
+    border: 1px solid #2f2820;
+  }
+  .genetic-key .seal {
+    position: absolute; left: 40px; top: 48px;
+    width: 60px; height: 60px; display: grid; place-items: center;
+  }
+  .genetic-key .seal::after {
+    content:""; position:absolute; inset:-9px;
+    border: 1px solid rgba(139,26,26,0.42); border-radius: 50%;
+  }
+  .genetic-key .seal svg { width:100%; height:100%; display:block; }
+  .genetic-key .label {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.34em;
+    text-transform: uppercase; color: var(--accent);
+    display:flex; align-items:center; gap:12px;
+    margin-bottom: 20px;
+  }
+  .genetic-key .label .bar { flex: 0 0 32px; height:1px; background: linear-gradient(90deg,var(--accent),transparent); }
+  .genetic-key h3 {
+    font-family: var(--font-display); font-size: 34px; font-weight: 400;
+    color: var(--fg); margin: 0 0 22px; letter-spacing: -0.005em;
+    line-height: 1.18; text-wrap: pretty;
+  }
+  .genetic-key h3 em { color: var(--accent); font-weight: 500; font-style: italic; }
+  .genetic-key .why {
+    display:flex; align-items:center; gap:14px;
+    margin: 24px 0 18px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: #8B1A1A;
+  }
+  .genetic-key .why .line { flex:1; height:1px; background:#2a2420; }
+  .genetic-key p {
+    font-family: var(--font-body); font-size: 18px; line-height: 1.7;
+    color: var(--fg-muted); margin: 0; max-width: 58ch;
+  }
+  .genetic-key p em { color: var(--fg); font-style: italic; }
+
+  /* Closing couplet — the axial destination */
+  .closing {
+    margin: 96px 0 40px; padding: 48px 0; text-align: center;
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .closing p {
+    font-family: var(--font-display); font-style: italic; font-size: 28px;
+    line-height: 1.4; color: var(--fg); margin: 0; max-width: 40ch; margin-inline: auto;
+    text-wrap: balance;
+  }
+
+  /* End mark */
+  .end-mark {
+    text-align: center; margin-top: 56px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    color: var(--accent-dim); text-transform: uppercase;
+  }
+  .end-mark .glyph { color: var(--accent); font-size: 14px; }
+
+  @media (max-width: 820px) {
+    .masthead { padding: 20px 24px 0; font-size: 9px; }
+    .bracket { width: 44px; height: 44px; }
+    .bracket.tl, .bracket.tr { top: 16px; }
+    .bracket.tl, .bracket.bl { left: 16px; }
+    .bracket.tr, .bracket.br { right: 16px; }
+    .bracket.bl, .bracket.br { bottom: 16px; }
+    .page { padding: 110px 28px 120px; }
+    .section-opener h1 { font-size: 54px; }
+    .prose { font-size: 17px; }
+    .axial { font-size: 26px; margin: 32px auto; }
+    .genetic-key { padding: 36px 24px 32px 24px; }
+    .genetic-key .seal { position: relative; margin: 0 0 20px 0; }
+    .genetic-key::before { inset: -4px; }
+    .genetic-key h3 { font-size: 26px; }
+  }
+
+
+/* === Part 2 - Creation and the Ordering of All Things.html === */
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(201,168,76,0.10), transparent 65%),
+      radial-gradient(ellipse 90% 60% at 50% 120%, rgba(139,26,26,0.05), transparent 70%),
+      var(--bg);
+    color: var(--fg);
+    min-height: 100vh;
+    position: relative;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .55;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSdib2Utbm9pc2UnPjxmZVR1cmJ1bGVuY2UgdHlwZT0nZnJhY3RhbE5vaXNlJyBiYXNlRnJlcXVlbmN5PScuODUnIG51bU9jdGF2ZXM9JzInIHNlZWQ9JzcnLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9JzAgMCAwIDAgMC43OSAgMCAwIDAgMCAwLjY4ICAwIDAgMCAwIDAuNDUgIDAgMCAwIC4wNyAwJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoJTIzYm9lLW5vaXNlKScvPjwvc3ZnPg==");
+    mix-blend-mode: screen;
+  }
+
+  .bracket { position: fixed; width: 64px; height: 64px; z-index: 3; pointer-events: none; opacity: .85; }
+  .bracket.tl { top: 28px; left: 28px; }
+  .bracket.tr { top: 28px; right: 28px; transform: scaleX(-1); }
+  .bracket.bl { bottom: 28px; left: 28px; transform: scaleY(-1); }
+  .bracket.br { bottom: 28px; right: 28px; transform: scale(-1, -1); }
+  .bracket svg { width: 100%; height: 100%; display: block; }
+
+  .masthead {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 34px 108px 0;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--accent-dim);
+    pointer-events: none;
+  }
+  .masthead .left, .masthead .right { display: flex; gap: 18px; align-items: center; }
+  .masthead .mark { color: var(--accent); }
+
+  .page { position: relative; max-width: 780px; margin: 0 auto; padding: 150px 80px 140px; z-index: 1; }
+
+  .section-opener { text-align: center; margin-bottom: 72px; padding: 56px 0 40px; }
+  .section-opener .num {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.4em;
+    color: var(--accent); margin-bottom: 28px; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .section-opener .num .glyph { color: var(--accent); }
+  .section-opener .num .rule { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
+  .section-opener .num .rule.right { background: linear-gradient(90deg, var(--accent), transparent); }
+  .section-opener h1 {
+    font-family: var(--font-display); font-size: 88px; font-weight: 300;
+    line-height: 1.02; letter-spacing: -0.015em; color: var(--fg); margin: 0;
+    text-wrap: balance;
+  }
+  .section-opener h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-opener .em-dash { width: 80px; height: 1px; background: var(--accent); margin: 40px auto; }
+  .section-opener .sub {
+    font-family: var(--font-display); font-style: italic; font-size: 26px;
+    color: var(--fg-muted); margin: 0; letter-spacing: 0.005em;
+  }
+
+  .epigraph {
+    max-width: 48ch; margin: 56px auto 88px; text-align: center;
+    font-family: var(--font-display); font-style: italic; font-size: 24px;
+    line-height: 1.5; color: var(--fg);
+  }
+  .epigraph cite {
+    display: block; margin-top: 24px; font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--accent); font-style: normal;
+  }
+
+  .prose { font-family: var(--font-body); font-size: 19px; line-height: 1.78; color: var(--fg); }
+  .prose p { margin: 0 0 26px; text-wrap: pretty; }
+  .prose .dropcap::first-letter {
+    font-family: var(--font-display); font-size: 102px; font-weight: 400;
+    float: left; line-height: 0.82; padding: 14px 16px 0 0; color: var(--accent);
+  }
+  .prose em.greek { color: var(--accent); font-style: italic; }
+  .prose em.stress { color: var(--fg); font-style: italic; font-family: var(--font-display); font-size: 1.05em; }
+  .prose cite.ref {
+    font-family: var(--font-mono); font-size: 0.7em; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent-dim); font-style: normal;
+    margin: 0 0.2em;
+  }
+
+  .axial {
+    display: block; margin: 44px auto; max-width: 38ch;
+    font-family: var(--font-display); font-weight: 400; font-size: 38px;
+    line-height: 1.2; color: var(--fg); text-align: center;
+    letter-spacing: -0.005em;
+  }
+  .axial em { color: var(--accent); font-style: italic; }
+
+  .ornament {
+    text-align: center; margin: 72px 0; color: var(--accent); opacity: 0.6;
+    font-size: 14px; letter-spacing: 1em; padding-left: 1em;
+  }
+
+  .genetic-key {
+    position: relative;
+    margin: 88px 0; padding: 48px 56px 44px 124px;
+    background:
+      linear-gradient(180deg, rgba(201,168,76,0.045) 0%, transparent 20%, transparent 80%, rgba(201,168,76,0.03) 100%),
+      #141414;
+    box-shadow:
+      0 0 0 1px #2a2a2a,
+      inset 0 1px 0 #C9A84C,
+      inset 0 -1px 0 #8a6f2e,
+      0 28px 70px -30px rgba(0,0,0,0.95);
+  }
+  .genetic-key::before {
+    content:""; position:absolute; inset:-8px; pointer-events:none;
+    border: 1px solid #2f2820;
+  }
+  .genetic-key .seal {
+    position: absolute; left: 40px; top: 48px;
+    width: 60px; height: 60px; display: grid; place-items: center;
+  }
+  .genetic-key .seal::after {
+    content:""; position:absolute; inset:-9px;
+    border: 1px solid rgba(139,26,26,0.42); border-radius: 50%;
+  }
+  .genetic-key .seal svg { width:100%; height:100%; display:block; }
+  .genetic-key .label {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.34em;
+    text-transform: uppercase; color: var(--accent);
+    display:flex; align-items:center; gap:12px;
+    margin-bottom: 20px;
+  }
+  .genetic-key .label .bar { flex: 0 0 32px; height:1px; background: linear-gradient(90deg,var(--accent),transparent); }
+  .genetic-key h3 {
+    font-family: var(--font-display); font-size: 34px; font-weight: 400;
+    color: var(--fg); margin: 0 0 22px; letter-spacing: -0.005em;
+    line-height: 1.18; text-wrap: pretty;
+  }
+  .genetic-key h3 em { color: var(--accent); font-weight: 500; font-style: italic; }
+  .genetic-key .why {
+    display:flex; align-items:center; gap:14px;
+    margin: 24px 0 18px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: #8B1A1A;
+  }
+  .genetic-key .why .line { flex:1; height:1px; background:#2a2420; }
+  .genetic-key p {
+    font-family: var(--font-body); font-size: 18px; line-height: 1.7;
+    color: var(--fg-muted); margin: 0; max-width: 58ch;
+  }
+  .genetic-key p em { color: var(--fg); font-style: italic; }
+
+  .closing {
+    margin: 96px 0 40px; padding: 48px 0; text-align: center;
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .closing p {
+    font-family: var(--font-display); font-style: italic; font-size: 30px;
+    line-height: 1.3; color: var(--fg); margin: 0; max-width: 30ch; margin-inline: auto;
+    text-wrap: balance;
+  }
+  .closing p em { color: var(--accent); font-style: italic; }
+
+  .end-mark {
+    text-align: center; margin-top: 56px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    color: var(--accent-dim); text-transform: uppercase;
+  }
+  .end-mark .glyph { color: var(--accent); font-size: 14px; }
+
+  @media (max-width: 820px) {
+    .masthead { padding: 20px 24px 0; font-size: 9px; }
+    .bracket { width: 44px; height: 44px; }
+    .bracket.tl, .bracket.tr { top: 16px; }
+    .bracket.tl, .bracket.bl { left: 16px; }
+    .bracket.tr, .bracket.br { right: 16px; }
+    .bracket.bl, .bracket.br { bottom: 16px; }
+    .page { padding: 110px 28px 120px; }
+    .section-opener h1 { font-size: 54px; }
+    .prose { font-size: 17px; }
+    .axial { font-size: 26px; margin: 32px auto; }
+    .genetic-key { padding: 36px 24px 32px 24px; }
+    .genetic-key .seal { position: relative; margin: 0 0 20px 0; }
+    .genetic-key::before { inset: -4px; }
+    .genetic-key h3 { font-size: 26px; }
+    .closing p { font-size: 22px; }
+  }
+
+
+/* === Part 3 - The Fall and the Seed.html === */
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(201,168,76,0.10), transparent 65%),
+      radial-gradient(ellipse 90% 60% at 50% 120%, rgba(139,26,26,0.05), transparent 70%),
+      var(--bg);
+    color: var(--fg);
+    min-height: 100vh;
+    position: relative;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .55;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSdib2Utbm9pc2UnPjxmZVR1cmJ1bGVuY2UgdHlwZT0nZnJhY3RhbE5vaXNlJyBiYXNlRnJlcXVlbmN5PScuODUnIG51bU9jdGF2ZXM9JzInIHNlZWQ9JzcnLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9JzAgMCAwIDAgMC43OSAgMCAwIDAgMCAwLjY4ICAwIDAgMCAwIDAuNDUgIDAgMCAwIC4wNyAwJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoJTIzYm9lLW5vaXNlKScvPjwvc3ZnPg==");
+    mix-blend-mode: screen;
+  }
+
+  .bracket { position: fixed; width: 64px; height: 64px; z-index: 3; pointer-events: none; opacity: .85; }
+  .bracket.tl { top: 28px; left: 28px; }
+  .bracket.tr { top: 28px; right: 28px; transform: scaleX(-1); }
+  .bracket.bl { bottom: 28px; left: 28px; transform: scaleY(-1); }
+  .bracket.br { bottom: 28px; right: 28px; transform: scale(-1, -1); }
+  .bracket svg { width: 100%; height: 100%; display: block; }
+
+  .masthead {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 34px 108px 0;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--accent-dim);
+    pointer-events: none;
+  }
+  .masthead .left, .masthead .right { display: flex; gap: 18px; align-items: center; }
+  .masthead .mark { color: var(--accent); }
+
+  .page { position: relative; max-width: 780px; margin: 0 auto; padding: 150px 80px 140px; z-index: 1; }
+
+  .section-opener { text-align: center; margin-bottom: 72px; padding: 56px 0 40px; }
+  .section-opener .num {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.4em;
+    color: var(--accent); margin-bottom: 28px; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .section-opener .num .glyph { color: var(--accent); }
+  .section-opener .num .rule { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
+  .section-opener .num .rule.right { background: linear-gradient(90deg, var(--accent), transparent); }
+  .section-opener h1 {
+    font-family: var(--font-display); font-size: 88px; font-weight: 300;
+    line-height: 1.02; letter-spacing: -0.015em; color: var(--fg); margin: 0;
+    text-wrap: balance;
+  }
+  .section-opener h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-opener .em-dash { width: 80px; height: 1px; background: var(--accent); margin: 40px auto; }
+  .section-opener .sub {
+    font-family: var(--font-display); font-style: italic; font-size: 26px;
+    color: var(--fg-muted); margin: 0; letter-spacing: 0.005em;
+  }
+
+  .epigraph {
+    max-width: 48ch; margin: 56px auto 88px; text-align: center;
+    font-family: var(--font-display); font-style: italic; font-size: 24px;
+    line-height: 1.5; color: var(--fg);
+  }
+  .epigraph cite {
+    display: block; margin-top: 24px; font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--accent); font-style: normal;
+  }
+
+  .prose { font-family: var(--font-body); font-size: 19px; line-height: 1.78; color: var(--fg); }
+  .prose p { margin: 0 0 26px; text-wrap: pretty; }
+  .prose .dropcap::first-letter {
+    font-family: var(--font-display); font-size: 102px; font-weight: 400;
+    float: left; line-height: 0.82; padding: 14px 16px 0 0; color: var(--accent);
+  }
+  .prose em.greek { color: var(--accent); font-style: italic; }
+  .prose em.stress { color: var(--fg); font-style: italic; font-family: var(--font-display); font-size: 1.05em; }
+
+  .axial {
+    display: block; margin: 44px auto; max-width: 38ch;
+    font-family: var(--font-display); font-weight: 400; font-size: 38px;
+    line-height: 1.2; color: var(--fg); text-align: center;
+    letter-spacing: -0.005em;
+  }
+  .axial em { color: var(--accent); font-style: italic; }
+
+  .ornament {
+    text-align: center; margin: 72px 0; color: var(--accent); opacity: 0.6;
+    font-size: 14px; letter-spacing: 1em; padding-left: 1em;
+  }
+
+  /* Lineage chain — Noah · Abraham · David */
+  .lineage {
+    margin: 56px auto 64px; max-width: 40ch;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.38em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  .lineage .node {
+    position: relative;
+    padding: 14px 4px 12px;
+  }
+  .lineage .node::before {
+    content: "◆"; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    color: var(--accent); font-size: 9px; letter-spacing: 0;
+  }
+  .lineage .line {
+    flex: 1; height: 1px;
+    background: linear-gradient(to right, var(--accent-dim), var(--accent), var(--accent-dim));
+    opacity: 0.5;
+  }
+
+  .genetic-key {
+    position: relative;
+    margin: 88px 0; padding: 48px 56px 44px 124px;
+    background:
+      linear-gradient(180deg, rgba(201,168,76,0.045) 0%, transparent 20%, transparent 80%, rgba(201,168,76,0.03) 100%),
+      #141414;
+    box-shadow:
+      0 0 0 1px #2a2a2a,
+      inset 0 1px 0 #C9A84C,
+      inset 0 -1px 0 #8a6f2e,
+      0 28px 70px -30px rgba(0,0,0,0.95);
+  }
+  .genetic-key::before {
+    content:""; position:absolute; inset:-8px; pointer-events:none;
+    border: 1px solid #2f2820;
+  }
+  .genetic-key .seal {
+    position: absolute; left: 40px; top: 48px;
+    width: 60px; height: 60px; display: grid; place-items: center;
+  }
+  .genetic-key .seal::after {
+    content:""; position:absolute; inset:-9px;
+    border: 1px solid rgba(139,26,26,0.42); border-radius: 50%;
+  }
+  .genetic-key .seal svg { width:100%; height:100%; display:block; }
+  .genetic-key .label {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.34em;
+    text-transform: uppercase; color: var(--accent);
+    display:flex; align-items:center; gap:12px;
+    margin-bottom: 20px;
+  }
+  .genetic-key .label .bar { flex: 0 0 32px; height:1px; background: linear-gradient(90deg,var(--accent),transparent); }
+  .genetic-key h3 {
+    font-family: var(--font-display); font-size: 34px; font-weight: 400;
+    color: var(--fg); margin: 0 0 22px; letter-spacing: -0.005em;
+    line-height: 1.18; text-wrap: pretty;
+  }
+  .genetic-key h3 em { color: var(--accent); font-weight: 500; font-style: italic; }
+  .genetic-key .why {
+    display:flex; align-items:center; gap:14px;
+    margin: 24px 0 18px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: #8B1A1A;
+  }
+  .genetic-key .why .line { flex:1; height:1px; background:#2a2420; }
+  .genetic-key p {
+    font-family: var(--font-body); font-size: 18px; line-height: 1.7;
+    color: var(--fg-muted); margin: 0; max-width: 58ch;
+  }
+  .genetic-key p em { color: var(--fg); font-style: italic; }
+
+  /* Closing — the cliffhanger to Part 4 */
+  .closing {
+    margin: 96px 0 40px; padding: 56px 0; text-align: center;
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .closing p {
+    font-family: var(--font-display); font-style: italic; font-size: 32px;
+    line-height: 1.3; color: var(--fg); margin: 0; max-width: 30ch; margin-inline: auto;
+    text-wrap: balance;
+  }
+  .closing p em { color: var(--accent); font-style: italic; font-weight: 500; }
+
+  .end-mark {
+    text-align: center; margin-top: 56px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    color: var(--accent-dim); text-transform: uppercase;
+  }
+  .end-mark .glyph { color: var(--accent); font-size: 14px; }
+
+  @media (max-width: 820px) {
+    .masthead { padding: 20px 24px 0; font-size: 9px; }
+    .bracket { width: 44px; height: 44px; }
+    .bracket.tl, .bracket.tr { top: 16px; }
+    .bracket.tl, .bracket.bl { left: 16px; }
+    .bracket.tr, .bracket.br { right: 16px; }
+    .bracket.bl, .bracket.br { bottom: 16px; }
+    .page { padding: 110px 28px 120px; }
+    .section-opener h1 { font-size: 54px; }
+    .prose { font-size: 17px; }
+    .axial { font-size: 26px; margin: 32px auto; }
+    .lineage { font-size: 9px; gap: 8px; }
+    .genetic-key { padding: 36px 24px 32px 24px; }
+    .genetic-key .seal { position: relative; margin: 0 0 20px 0; }
+    .genetic-key::before { inset: -4px; }
+    .genetic-key h3 { font-size: 26px; }
+    .closing p { font-size: 22px; }
+  }
+
+
+/* === Part 4 - The Incarnation.html === */
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(201,168,76,0.10), transparent 65%),
+      radial-gradient(ellipse 90% 60% at 50% 120%, rgba(139,26,26,0.05), transparent 70%),
+      var(--bg);
+    color: var(--fg); min-height: 100vh; position: relative;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .55;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSdib2Utbm9pc2UnPjxmZVR1cmJ1bGVuY2UgdHlwZT0nZnJhY3RhbE5vaXNlJyBiYXNlRnJlcXVlbmN5PScuODUnIG51bU9jdGF2ZXM9JzInIHNlZWQ9JzcnLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9JzAgMCAwIDAgMC43OSAgMCAwIDAgMCAwLjY4ICAwIDAgMCAwIDAuNDUgIDAgMCAwIC4wNyAwJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoJTIzYm9lLW5vaXNlKScvPjwvc3ZnPg==");
+    mix-blend-mode: screen;
+  }
+  .bracket { position: fixed; width: 64px; height: 64px; z-index: 3; pointer-events: none; opacity: .85; }
+  .bracket.tl { top: 28px; left: 28px; }
+  .bracket.tr { top: 28px; right: 28px; transform: scaleX(-1); }
+  .bracket.bl { bottom: 28px; left: 28px; transform: scaleY(-1); }
+  .bracket.br { bottom: 28px; right: 28px; transform: scale(-1, -1); }
+  .bracket svg { width: 100%; height: 100%; display: block; }
+  .masthead {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 34px 108px 0;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--accent-dim); pointer-events: none;
+  }
+  .masthead .left, .masthead .right { display: flex; gap: 18px; align-items: center; }
+  .masthead .mark { color: var(--accent); }
+  .page { position: relative; max-width: 780px; margin: 0 auto; padding: 150px 80px 140px; z-index: 1; }
+  .section-opener { text-align: center; margin-bottom: 72px; padding: 56px 0 40px; }
+  .section-opener .num {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.4em;
+    color: var(--accent); margin-bottom: 28px; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .section-opener .num .glyph { color: var(--accent); }
+  .section-opener .num .rule { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
+  .section-opener .num .rule.right { background: linear-gradient(90deg, var(--accent), transparent); }
+  .section-opener h1 {
+    font-family: var(--font-display); font-size: 88px; font-weight: 300;
+    line-height: 1.02; letter-spacing: -0.015em; color: var(--fg); margin: 0; text-wrap: balance;
+  }
+  .section-opener h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-opener .em-dash { width: 80px; height: 1px; background: var(--accent); margin: 40px auto; }
+  .section-opener .sub {
+    font-family: var(--font-display); font-style: italic; font-size: 26px;
+    color: var(--fg-muted); margin: 0; letter-spacing: 0.005em;
+  }
+  .epigraph {
+    max-width: 48ch; margin: 56px auto 88px; text-align: center;
+    font-family: var(--font-display); font-style: italic; font-size: 24px;
+    line-height: 1.5; color: var(--fg);
+  }
+  .epigraph cite {
+    display: block; margin-top: 24px; font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--accent); font-style: normal;
+  }
+  .prose { font-family: var(--font-body); font-size: 19px; line-height: 1.78; color: var(--fg); }
+  .prose p { margin: 0 0 26px; text-wrap: pretty; }
+  .prose .dropcap::first-letter {
+    font-family: var(--font-display); font-size: 102px; font-weight: 400;
+    float: left; line-height: 0.82; padding: 14px 16px 0 0; color: var(--accent);
+  }
+  .prose em.greek { color: var(--accent); font-style: italic; }
+  .prose .translit {
+    font-family: var(--font-mono); font-size: 0.76em; letter-spacing: 0.09em;
+    color: var(--fg-faint); text-transform: uppercase; margin: 0 0.2em;
+  }
+  .prose em.stress { color: var(--fg); font-style: italic; font-family: var(--font-display); font-size: 1.05em; }
+  .prose cite.ref {
+    font-family: var(--font-mono); font-size: 0.7em; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent-dim); font-style: normal; margin: 0 0.2em;
+  }
+  .axial {
+    display: block; margin: 44px auto; max-width: 38ch;
+    font-family: var(--font-display); font-weight: 400; font-size: 38px;
+    line-height: 1.2; color: var(--fg); text-align: center; letter-spacing: -0.005em;
+  }
+  .axial em { color: var(--accent); font-style: italic; }
+  .ornament { text-align: center; margin: 72px 0; color: var(--accent); opacity: 0.6; font-size: 14px; letter-spacing: 1em; padding-left: 1em; }
+
+  /* Two-register diptych — kata sarka / kata pneuma */
+  .registers {
+    display: grid; grid-template-columns: 1fr 1px 1fr; gap: 40px;
+    margin: 64px 0 56px; padding: 8px 0;
+  }
+  .registers .divider { background: linear-gradient(to bottom, transparent, var(--accent-dim), transparent); }
+  .registers .reg .label {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+  }
+  .registers .reg .greek {
+    font-family: var(--font-display); font-style: italic; font-size: 32px;
+    color: var(--accent); margin-bottom: 6px; line-height: 1.1;
+  }
+  .registers .reg .translit {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--fg-faint); margin-bottom: 18px;
+  }
+  .registers .reg .gloss {
+    font-family: var(--font-body); font-size: 17px; line-height: 1.55; color: var(--fg-muted); margin: 0;
+  }
+
+  .genetic-key {
+    position: relative;
+    margin: 88px 0; padding: 48px 56px 44px 124px;
+    background: linear-gradient(180deg, rgba(201,168,76,0.045) 0%, transparent 20%, transparent 80%, rgba(201,168,76,0.03) 100%), #141414;
+    box-shadow: 0 0 0 1px #2a2a2a, inset 0 1px 0 #C9A84C, inset 0 -1px 0 #8a6f2e, 0 28px 70px -30px rgba(0,0,0,0.95);
+  }
+  .genetic-key::before { content:""; position:absolute; inset:-8px; pointer-events:none; border: 1px solid #2f2820; }
+  .genetic-key .seal { position: absolute; left: 40px; top: 48px; width: 60px; height: 60px; display: grid; place-items: center; }
+  .genetic-key .seal::after { content:""; position:absolute; inset:-9px; border: 1px solid rgba(139,26,26,0.42); border-radius: 50%; }
+  .genetic-key .seal svg { width:100%; height:100%; display:block; }
+  .genetic-key .label {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.34em;
+    text-transform: uppercase; color: var(--accent);
+    display:flex; align-items:center; gap:12px; margin-bottom: 20px;
+  }
+  .genetic-key .label .bar { flex: 0 0 32px; height:1px; background: linear-gradient(90deg,var(--accent),transparent); }
+  .genetic-key h3 {
+    font-family: var(--font-display); font-size: 34px; font-weight: 400;
+    color: var(--fg); margin: 0 0 22px; letter-spacing: -0.005em;
+    line-height: 1.18; text-wrap: pretty;
+  }
+  .genetic-key h3 em { color: var(--accent); font-weight: 500; font-style: italic; }
+  .genetic-key .why {
+    display:flex; align-items:center; gap:14px; margin: 24px 0 18px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: #8B1A1A;
+  }
+  .genetic-key .why .line { flex:1; height:1px; background:#2a2420; }
+  .genetic-key p {
+    font-family: var(--font-body); font-size: 18px; line-height: 1.7;
+    color: var(--fg-muted); margin: 0; max-width: 58ch;
+  }
+  .genetic-key p em { color: var(--fg); font-style: italic; }
+
+  .closing {
+    margin: 96px 0 40px; padding: 48px 0; text-align: center;
+    border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);
+  }
+  .closing p {
+    font-family: var(--font-display); font-style: italic; font-size: 28px;
+    line-height: 1.4; color: var(--fg); margin: 0; max-width: 40ch; margin-inline: auto; text-wrap: balance;
+  }
+  .closing p em { color: var(--accent); font-style: italic; }
+  .end-mark {
+    text-align: center; margin-top: 56px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    color: var(--accent-dim); text-transform: uppercase;
+  }
+  .end-mark .glyph { color: var(--accent); font-size: 14px; }
+
+  @media (max-width: 820px) {
+    .masthead { padding: 20px 24px 0; font-size: 9px; }
+    .bracket { width: 44px; height: 44px; }
+    .bracket.tl, .bracket.tr { top: 16px; }
+    .bracket.tl, .bracket.bl { left: 16px; }
+    .bracket.tr, .bracket.br { right: 16px; }
+    .bracket.bl, .bracket.br { bottom: 16px; }
+    .page { padding: 110px 28px 120px; }
+    .section-opener h1 { font-size: 54px; }
+    .prose { font-size: 17px; }
+    .axial { font-size: 26px; margin: 32px auto; }
+    .registers { grid-template-columns: 1fr; gap: 32px; }
+    .registers .divider { height: 1px; background: linear-gradient(to right, transparent, var(--accent-dim), transparent); }
+    .genetic-key { padding: 36px 24px 32px 24px; }
+    .genetic-key .seal { position: relative; margin: 0 0 20px 0; }
+    .genetic-key::before { inset: -4px; }
+    .genetic-key h3 { font-size: 26px; }
+  }
+
+
+/* === Part 5 - The Cup.html === */
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(201,168,76,0.10), transparent 65%),
+      radial-gradient(ellipse 90% 60% at 50% 120%, rgba(139,26,26,0.08), transparent 70%),
+      var(--bg);
+    color: var(--fg); min-height: 100vh; position: relative;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .55;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSdib2Utbm9pc2UnPjxmZVR1cmJ1bGVuY2UgdHlwZT0nZnJhY3RhbE5vaXNlJyBiYXNlRnJlcXVlbmN5PScuODUnIG51bU9jdGF2ZXM9JzInIHNlZWQ9JzcnLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9JzAgMCAwIDAgMC43OSAgMCAwIDAgMCAwLjY4ICAwIDAgMCAwIDAuNDUgIDAgMCAwIC4wNyAwJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoJTIzYm9lLW5vaXNlKScvPjwvc3ZnPg==");
+    mix-blend-mode: screen;
+  }
+  .bracket { position: fixed; width: 64px; height: 64px; z-index: 3; pointer-events: none; opacity: .85; }
+  .bracket.tl { top: 28px; left: 28px; }
+  .bracket.tr { top: 28px; right: 28px; transform: scaleX(-1); }
+  .bracket.bl { bottom: 28px; left: 28px; transform: scaleY(-1); }
+  .bracket.br { bottom: 28px; right: 28px; transform: scale(-1, -1); }
+  .bracket svg { width: 100%; height: 100%; display: block; }
+  .masthead {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 34px 108px 0;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--accent-dim); pointer-events: none;
+  }
+  .masthead .left, .masthead .right { display: flex; gap: 18px; align-items: center; }
+  .masthead .mark { color: var(--accent); }
+  .page { position: relative; max-width: 780px; margin: 0 auto; padding: 150px 80px 140px; z-index: 1; }
+  .section-opener { text-align: center; margin-bottom: 72px; padding: 56px 0 40px; }
+  .section-opener .num {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.4em;
+    color: var(--accent); margin-bottom: 28px; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .section-opener .num .glyph { color: var(--accent); }
+  .section-opener .num .rule { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
+  .section-opener .num .rule.right { background: linear-gradient(90deg, var(--accent), transparent); }
+  .section-opener h1 {
+    font-family: var(--font-display); font-size: 88px; font-weight: 300;
+    line-height: 1.02; letter-spacing: -0.015em; color: var(--fg); margin: 0; text-wrap: balance;
+  }
+  .section-opener h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-opener .em-dash { width: 80px; height: 1px; background: var(--accent); margin: 40px auto; }
+  .section-opener .sub {
+    font-family: var(--font-display); font-style: italic; font-size: 26px;
+    color: var(--fg-muted); margin: 0; letter-spacing: 0.005em;
+  }
+  .epigraph {
+    max-width: 48ch; margin: 56px auto 88px; text-align: center;
+    font-family: var(--font-display); font-style: italic; font-size: 24px;
+    line-height: 1.5; color: var(--fg);
+  }
+  .epigraph cite {
+    display: block; margin-top: 24px; font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--accent); font-style: normal;
+  }
+  .prose { font-family: var(--font-body); font-size: 19px; line-height: 1.78; color: var(--fg); }
+  .prose p { margin: 0 0 26px; text-wrap: pretty; }
+  .prose .dropcap::first-letter {
+    font-family: var(--font-display); font-size: 102px; font-weight: 400;
+    float: left; line-height: 0.82; padding: 14px 16px 0 0; color: var(--accent);
+  }
+  .prose em.greek { color: var(--accent); font-style: italic; }
+  .prose em.stress { color: var(--fg); font-style: italic; font-family: var(--font-display); font-size: 1.05em; }
+  .prose cite.ref {
+    font-family: var(--font-mono); font-size: 0.7em; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent-dim); font-style: normal; margin: 0 0.2em;
+  }
+  .axial {
+    display: block; margin: 44px auto; max-width: 38ch;
+    font-family: var(--font-display); font-weight: 400; font-size: 38px;
+    line-height: 1.2; color: var(--fg); text-align: center; letter-spacing: -0.005em;
+  }
+  .axial em { color: var(--accent); font-style: italic; }
+  .ornament { text-align: center; margin: 72px 0; color: var(--accent); opacity: 0.6; font-size: 14px; letter-spacing: 1em; padding-left: 1em; }
+
+  /* Gethsemane scripture — left crimson rule for the cup */
+  .gethsemane {
+    border-left: 2px solid var(--prophetic);
+    padding: 14px 0 14px 32px;
+    margin: 40px 0; max-width: 52ch;
+  }
+  .gethsemane p {
+    font-family: var(--font-display); font-style: italic; font-size: 26px;
+    line-height: 1.45; color: var(--fg); margin: 0 0 12px;
+  }
+  .gethsemane cite {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--prophetic); font-style: normal;
+  }
+
+  .genetic-key {
+    position: relative;
+    margin: 88px 0; padding: 48px 56px 44px 124px;
+    background: linear-gradient(180deg, rgba(201,168,76,0.045) 0%, transparent 20%, transparent 80%, rgba(201,168,76,0.03) 100%), #141414;
+    box-shadow: 0 0 0 1px #2a2a2a, inset 0 1px 0 #C9A84C, inset 0 -1px 0 #8a6f2e, 0 28px 70px -30px rgba(0,0,0,0.95);
+  }
+  .genetic-key::before { content:""; position:absolute; inset:-8px; pointer-events:none; border: 1px solid #2f2820; }
+  .genetic-key .seal { position: absolute; left: 40px; top: 48px; width: 60px; height: 60px; display: grid; place-items: center; }
+  .genetic-key .seal::after { content:""; position:absolute; inset:-9px; border: 1px solid rgba(139,26,26,0.42); border-radius: 50%; }
+  .genetic-key .seal svg { width:100%; height:100%; display:block; }
+  .genetic-key .label {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.34em;
+    text-transform: uppercase; color: var(--accent);
+    display:flex; align-items:center; gap:12px; margin-bottom: 20px;
+  }
+  .genetic-key .label .bar { flex: 0 0 32px; height:1px; background: linear-gradient(90deg,var(--accent),transparent); }
+  .genetic-key h3 {
+    font-family: var(--font-display); font-size: 34px; font-weight: 400;
+    color: var(--fg); margin: 0 0 22px; letter-spacing: -0.005em;
+    line-height: 1.18; text-wrap: pretty;
+  }
+  .genetic-key h3 em { color: var(--accent); font-weight: 500; font-style: italic; }
+  .genetic-key .why {
+    display:flex; align-items:center; gap:14px; margin: 24px 0 18px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: #8B1A1A;
+  }
+  .genetic-key .why .line { flex:1; height:1px; background:#2a2420; }
+  .genetic-key p {
+    font-family: var(--font-body); font-size: 18px; line-height: 1.7;
+    color: var(--fg-muted); margin: 0; max-width: 58ch;
+  }
+  .genetic-key p em { color: var(--fg); font-style: italic; }
+  .closing {
+    margin: 96px 0 40px; padding: 48px 0; text-align: center;
+    border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);
+  }
+  .closing p {
+    font-family: var(--font-display); font-style: italic; font-size: 28px;
+    line-height: 1.4; color: var(--fg); margin: 0; max-width: 40ch; margin-inline: auto; text-wrap: balance;
+  }
+  .closing p em { color: var(--accent); font-style: italic; }
+  .end-mark { text-align: center; margin-top: 56px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em; color: var(--accent-dim); text-transform: uppercase; }
+  .end-mark .glyph { color: var(--accent); font-size: 14px; }
+
+  @media (max-width: 820px) {
+    .masthead { padding: 20px 24px 0; font-size: 9px; }
+    .bracket { width: 44px; height: 44px; }
+    .bracket.tl, .bracket.tr { top: 16px; }
+    .bracket.tl, .bracket.bl { left: 16px; }
+    .bracket.tr, .bracket.br { right: 16px; }
+    .bracket.bl, .bracket.br { bottom: 16px; }
+    .page { padding: 110px 28px 120px; }
+    .section-opener h1 { font-size: 54px; }
+    .prose { font-size: 17px; }
+    .axial { font-size: 26px; margin: 32px auto; }
+    .genetic-key { padding: 36px 24px 32px 24px; }
+    .genetic-key .seal { position: relative; margin: 0 0 20px 0; }
+    .genetic-key::before { inset: -4px; }
+    .genetic-key h3 { font-size: 26px; }
+    .closing p { font-size: 22px; }
+  }
+
+
+/* === Part 6 - The Resurrection and the Glorified Form.html === */
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(201,168,76,0.14), transparent 65%),
+      radial-gradient(ellipse 90% 60% at 50% 120%, rgba(139,26,26,0.05), transparent 70%),
+      var(--bg);
+    color: var(--fg); min-height: 100vh; position: relative;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .55;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSdib2Utbm9pc2UnPjxmZVR1cmJ1bGVuY2UgdHlwZT0nZnJhY3RhbE5vaXNlJyBiYXNlRnJlcXVlbmN5PScuODUnIG51bU9jdGF2ZXM9JzInIHNlZWQ9JzcnLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9JzAgMCAwIDAgMC43OSAgMCAwIDAgMCAwLjY4ICAwIDAgMCAwIDAuNDUgIDAgMCAwIC4wNyAwJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoJTIzYm9lLW5vaXNlKScvPjwvc3ZnPg==");
+    mix-blend-mode: screen;
+  }
+  .bracket { position: fixed; width: 64px; height: 64px; z-index: 3; pointer-events: none; opacity: .85; }
+  .bracket.tl { top: 28px; left: 28px; }
+  .bracket.tr { top: 28px; right: 28px; transform: scaleX(-1); }
+  .bracket.bl { bottom: 28px; left: 28px; transform: scaleY(-1); }
+  .bracket.br { bottom: 28px; right: 28px; transform: scale(-1, -1); }
+  .bracket svg { width: 100%; height: 100%; display: block; }
+  .masthead {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 34px 108px 0;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--accent-dim); pointer-events: none;
+  }
+  .masthead .left, .masthead .right { display: flex; gap: 18px; align-items: center; }
+  .masthead .mark { color: var(--accent); }
+  .page { position: relative; max-width: 780px; margin: 0 auto; padding: 150px 80px 140px; z-index: 1; }
+  .section-opener { text-align: center; margin-bottom: 72px; padding: 56px 0 40px; }
+  .section-opener .num {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.4em;
+    color: var(--accent); margin-bottom: 28px; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .section-opener .num .glyph { color: var(--accent); }
+  .section-opener .num .rule { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
+  .section-opener .num .rule.right { background: linear-gradient(90deg, var(--accent), transparent); }
+  .section-opener h1 {
+    font-family: var(--font-display); font-size: 88px; font-weight: 300;
+    line-height: 1.02; letter-spacing: -0.015em; color: var(--fg); margin: 0; text-wrap: balance;
+  }
+  .section-opener h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-opener .em-dash { width: 80px; height: 1px; background: var(--accent); margin: 40px auto; }
+  .section-opener .sub {
+    font-family: var(--font-display); font-style: italic; font-size: 26px;
+    color: var(--fg-muted); margin: 0; letter-spacing: 0.005em;
+  }
+  .epigraph {
+    max-width: 48ch; margin: 56px auto 88px; text-align: center;
+    font-family: var(--font-display); font-style: italic; font-size: 24px;
+    line-height: 1.5; color: var(--fg);
+  }
+  .epigraph cite {
+    display: block; margin-top: 24px; font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--accent); font-style: normal;
+  }
+  .prose { font-family: var(--font-body); font-size: 19px; line-height: 1.78; color: var(--fg); }
+  .prose p { margin: 0 0 26px; text-wrap: pretty; }
+  .prose .dropcap::first-letter {
+    font-family: var(--font-display); font-size: 102px; font-weight: 400;
+    float: left; line-height: 0.82; padding: 14px 16px 0 0; color: var(--accent);
+  }
+  .prose em.greek { color: var(--accent); font-style: italic; }
+  .prose em.stress { color: var(--fg); font-style: italic; font-family: var(--font-display); font-size: 1.05em; }
+  .prose cite.ref {
+    font-family: var(--font-mono); font-size: 0.7em; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent-dim); font-style: normal; margin: 0 0.2em;
+  }
+  .axial {
+    display: block; margin: 44px auto; max-width: 38ch;
+    font-family: var(--font-display); font-weight: 400; font-size: 38px;
+    line-height: 1.2; color: var(--fg); text-align: center; letter-spacing: -0.005em;
+  }
+  .axial em { color: var(--accent); font-style: italic; }
+  .ornament { text-align: center; margin: 72px 0; color: var(--accent); opacity: 0.6; font-size: 14px; letter-spacing: 1em; padding-left: 1em; }
+
+  /* Firstfruits — one prototype, a coming harvest */
+  .firstfruits {
+    margin: 64px auto; max-width: 46ch;
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 28px;
+  }
+  .firstfruits .stalk {
+    width: 88px; height: 88px; display: grid; place-items: center;
+  }
+  .firstfruits .stalk svg { width: 100%; height: 100%; display: block; }
+  .firstfruits .text {
+    font-family: var(--font-display); font-style: italic; font-size: 22px;
+    line-height: 1.45; color: var(--fg); text-align: left;
+  }
+  .firstfruits .text strong {
+    display: block; font-weight: 400; color: var(--accent); font-style: normal;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.34em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .firstfruits .ref {
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.34em;
+    text-transform: uppercase; color: var(--accent-dim);
+    border-left: 1px solid var(--border-soft); padding: 8px 0 8px 12px;
+  }
+
+  .genetic-key {
+    position: relative;
+    margin: 88px 0; padding: 48px 56px 44px 124px;
+    background: linear-gradient(180deg, rgba(201,168,76,0.045) 0%, transparent 20%, transparent 80%, rgba(201,168,76,0.03) 100%), #141414;
+    box-shadow: 0 0 0 1px #2a2a2a, inset 0 1px 0 #C9A84C, inset 0 -1px 0 #8a6f2e, 0 28px 70px -30px rgba(0,0,0,0.95);
+  }
+  .genetic-key::before { content:""; position:absolute; inset:-8px; pointer-events:none; border: 1px solid #2f2820; }
+  .genetic-key .seal { position: absolute; left: 40px; top: 48px; width: 60px; height: 60px; display: grid; place-items: center; }
+  .genetic-key .seal::after { content:""; position:absolute; inset:-9px; border: 1px solid rgba(139,26,26,0.42); border-radius: 50%; }
+  .genetic-key .seal svg { width:100%; height:100%; display:block; }
+  .genetic-key .label {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.34em;
+    text-transform: uppercase; color: var(--accent);
+    display:flex; align-items:center; gap:12px; margin-bottom: 20px;
+  }
+  .genetic-key .label .bar { flex: 0 0 32px; height:1px; background: linear-gradient(90deg,var(--accent),transparent); }
+  .genetic-key h3 {
+    font-family: var(--font-display); font-size: 34px; font-weight: 400;
+    color: var(--fg); margin: 0 0 22px; letter-spacing: -0.005em;
+    line-height: 1.18; text-wrap: pretty;
+  }
+  .genetic-key h3 em { color: var(--accent); font-weight: 500; font-style: italic; }
+  .genetic-key .why {
+    display:flex; align-items:center; gap:14px; margin: 24px 0 18px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: #8B1A1A;
+  }
+  .genetic-key .why .line { flex:1; height:1px; background:#2a2420; }
+  .genetic-key p {
+    font-family: var(--font-body); font-size: 18px; line-height: 1.7;
+    color: var(--fg-muted); margin: 0; max-width: 58ch;
+  }
+  .genetic-key p em { color: var(--fg); font-style: italic; }
+  .closing {
+    margin: 96px 0 40px; padding: 48px 0; text-align: center;
+    border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);
+  }
+  .closing p {
+    font-family: var(--font-display); font-style: italic; font-size: 28px;
+    line-height: 1.4; color: var(--fg); margin: 0; max-width: 40ch; margin-inline: auto; text-wrap: balance;
+  }
+  .closing p em { color: var(--accent); font-style: italic; }
+  .end-mark { text-align: center; margin-top: 56px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em; color: var(--accent-dim); text-transform: uppercase; }
+  .end-mark .glyph { color: var(--accent); font-size: 14px; }
+
+  @media (max-width: 820px) {
+    .masthead { padding: 20px 24px 0; font-size: 9px; }
+    .bracket { width: 44px; height: 44px; }
+    .bracket.tl, .bracket.tr { top: 16px; }
+    .bracket.tl, .bracket.bl { left: 16px; }
+    .bracket.tr, .bracket.br { right: 16px; }
+    .bracket.bl, .bracket.br { bottom: 16px; }
+    .page { padding: 110px 28px 120px; }
+    .section-opener h1 { font-size: 54px; }
+    .prose { font-size: 17px; }
+    .axial { font-size: 26px; margin: 32px auto; }
+    .firstfruits { grid-template-columns: auto 1fr; }
+    .firstfruits .ref { display: none; }
+    .genetic-key { padding: 36px 24px 32px 24px; }
+    .genetic-key .seal { position: relative; margin: 0 0 20px 0; }
+    .genetic-key::before { inset: -4px; }
+    .genetic-key h3 { font-size: 26px; }
+    .closing p { font-size: 22px; }
+  }
+
+
+/* === Part 7 - The Inheritance.html === */
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(201,168,76,0.16), transparent 65%),
+      radial-gradient(ellipse 90% 60% at 50% 120%, rgba(139,26,26,0.05), transparent 70%),
+      var(--bg);
+    color: var(--fg); min-height: 100vh; position: relative;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .55;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSdib2Utbm9pc2UnPjxmZVR1cmJ1bGVuY2UgdHlwZT0nZnJhY3RhbE5vaXNlJyBiYXNlRnJlcXVlbmN5PScuODUnIG51bU9jdGF2ZXM9JzInIHNlZWQ9JzcnLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9JzAgMCAwIDAgMC43OSAgMCAwIDAgMCAwLjY4ICAwIDAgMCAwIDAuNDUgIDAgMCAwIC4wNyAwJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoJTIzYm9lLW5vaXNlKScvPjwvc3ZnPg==");
+    mix-blend-mode: screen;
+  }
+  .bracket { position: fixed; width: 64px; height: 64px; z-index: 3; pointer-events: none; opacity: .85; }
+  .bracket.tl { top: 28px; left: 28px; }
+  .bracket.tr { top: 28px; right: 28px; transform: scaleX(-1); }
+  .bracket.bl { bottom: 28px; left: 28px; transform: scaleY(-1); }
+  .bracket.br { bottom: 28px; right: 28px; transform: scale(-1, -1); }
+  .bracket svg { width: 100%; height: 100%; display: block; }
+  .masthead {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 34px 108px 0;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--accent-dim); pointer-events: none;
+  }
+  .masthead .left, .masthead .right { display: flex; gap: 18px; align-items: center; }
+  .masthead .mark { color: var(--accent); }
+  .page { position: relative; max-width: 780px; margin: 0 auto; padding: 150px 80px 140px; z-index: 1; }
+  .section-opener { text-align: center; margin-bottom: 72px; padding: 56px 0 40px; }
+  .section-opener .num {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.4em;
+    color: var(--accent); margin-bottom: 28px; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .section-opener .num .glyph { color: var(--accent); }
+  .section-opener .num .rule { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
+  .section-opener .num .rule.right { background: linear-gradient(90deg, var(--accent), transparent); }
+  .section-opener h1 {
+    font-family: var(--font-display); font-size: 88px; font-weight: 300;
+    line-height: 1.02; letter-spacing: -0.015em; color: var(--fg); margin: 0; text-wrap: balance;
+  }
+  .section-opener h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-opener .em-dash { width: 80px; height: 1px; background: var(--accent); margin: 40px auto; }
+  .section-opener .sub {
+    font-family: var(--font-display); font-style: italic; font-size: 26px;
+    color: var(--fg-muted); margin: 0; letter-spacing: 0.005em;
+  }
+  .epigraph {
+    max-width: 48ch; margin: 56px auto 88px; text-align: center;
+    font-family: var(--font-display); font-style: italic; font-size: 24px;
+    line-height: 1.5; color: var(--fg);
+  }
+  .epigraph cite {
+    display: block; margin-top: 24px; font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--accent); font-style: normal;
+  }
+  .prose { font-family: var(--font-body); font-size: 19px; line-height: 1.78; color: var(--fg); }
+  .prose p { margin: 0 0 26px; text-wrap: pretty; }
+  .prose .dropcap::first-letter {
+    font-family: var(--font-display); font-size: 102px; font-weight: 400;
+    float: left; line-height: 0.82; padding: 14px 16px 0 0; color: var(--accent);
+  }
+  .prose em.greek { color: var(--accent); font-style: italic; }
+  .prose em.stress { color: var(--fg); font-style: italic; font-family: var(--font-display); font-size: 1.05em; }
+  .prose cite.ref {
+    font-family: var(--font-mono); font-size: 0.7em; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent-dim); font-style: normal; margin: 0 0.2em;
+  }
+  .axial {
+    display: block; margin: 44px auto; max-width: 38ch;
+    font-family: var(--font-display); font-weight: 400; font-size: 38px;
+    line-height: 1.2; color: var(--fg); text-align: center; letter-spacing: -0.005em;
+  }
+  .axial em { color: var(--accent); font-style: italic; }
+  .ornament { text-align: center; margin: 72px 0; color: var(--accent); opacity: 0.6; font-size: 14px; letter-spacing: 1em; padding-left: 1em; }
+
+  /* Two-register diptych — psyche zoe / pneuma zoopoion */
+  .registers {
+    display: grid; grid-template-columns: 1fr 1px 1fr; gap: 40px;
+    margin: 64px 0 56px; padding: 8px 0;
+  }
+  .registers .divider { background: linear-gradient(to bottom, transparent, var(--accent-dim), transparent); }
+  .registers .reg .label {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+  }
+  .registers .reg .greek {
+    font-family: var(--font-display); font-style: italic; font-size: 32px;
+    color: var(--accent); margin-bottom: 6px; line-height: 1.1;
+  }
+  .registers .reg .translit {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--fg-faint); margin-bottom: 18px;
+  }
+  .registers .reg .gloss {
+    font-family: var(--font-body); font-size: 17px; line-height: 1.55; color: var(--fg-muted); margin: 0;
+  }
+  .registers .reg .gloss em { color: var(--fg); font-style: italic; }
+  .registers .reg .adam {
+    font-family: var(--font-display); font-style: italic; font-size: 16px;
+    color: var(--fg); margin-bottom: 14px; letter-spacing: 0.02em;
+  }
+
+  .genetic-key {
+    position: relative;
+    margin: 88px 0; padding: 48px 56px 44px 124px;
+    background: linear-gradient(180deg, rgba(201,168,76,0.045) 0%, transparent 20%, transparent 80%, rgba(201,168,76,0.03) 100%), #141414;
+    box-shadow: 0 0 0 1px #2a2a2a, inset 0 1px 0 #C9A84C, inset 0 -1px 0 #8a6f2e, 0 28px 70px -30px rgba(0,0,0,0.95);
+  }
+  .genetic-key::before { content:""; position:absolute; inset:-8px; pointer-events:none; border: 1px solid #2f2820; }
+  .genetic-key .seal { position: absolute; left: 40px; top: 48px; width: 60px; height: 60px; display: grid; place-items: center; }
+  .genetic-key .seal::after { content:""; position:absolute; inset:-9px; border: 1px solid rgba(139,26,26,0.42); border-radius: 50%; }
+  .genetic-key .seal svg { width:100%; height:100%; display:block; }
+  .genetic-key .label {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.34em;
+    text-transform: uppercase; color: var(--accent);
+    display:flex; align-items:center; gap:12px; margin-bottom: 20px;
+  }
+  .genetic-key .label .bar { flex: 0 0 32px; height:1px; background: linear-gradient(90deg,var(--accent),transparent); }
+  .genetic-key h3 {
+    font-family: var(--font-display); font-size: 34px; font-weight: 400;
+    color: var(--fg); margin: 0 0 22px; letter-spacing: -0.005em;
+    line-height: 1.18; text-wrap: pretty;
+  }
+  .genetic-key h3 em { color: var(--accent); font-weight: 500; font-style: italic; }
+  .genetic-key .why {
+    display:flex; align-items:center; gap:14px; margin: 24px 0 18px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: #8B1A1A;
+  }
+  .genetic-key .why .line { flex:1; height:1px; background:#2a2420; }
+  .genetic-key p {
+    font-family: var(--font-body); font-size: 18px; line-height: 1.7;
+    color: var(--fg-muted); margin: 0; max-width: 58ch;
+  }
+  .genetic-key p em { color: var(--fg); font-style: italic; }
+  .closing {
+    margin: 96px 0 40px; padding: 48px 0; text-align: center;
+    border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);
+  }
+  .closing p {
+    font-family: var(--font-display); font-style: italic; font-size: 28px;
+    line-height: 1.4; color: var(--fg); margin: 0; max-width: 40ch; margin-inline: auto; text-wrap: balance;
+  }
+  .closing p em { color: var(--accent); font-style: italic; }
+  .end-mark { text-align: center; margin-top: 56px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em; color: var(--accent-dim); text-transform: uppercase; }
+  .end-mark .glyph { color: var(--accent); font-size: 14px; }
+
+  @media (max-width: 820px) {
+    .masthead { padding: 20px 24px 0; font-size: 9px; }
+    .bracket { width: 44px; height: 44px; }
+    .bracket.tl, .bracket.tr { top: 16px; }
+    .bracket.tl, .bracket.bl { left: 16px; }
+    .bracket.tr, .bracket.br { right: 16px; }
+    .bracket.bl, .bracket.br { bottom: 16px; }
+    .page { padding: 110px 28px 120px; }
+    .section-opener h1 { font-size: 54px; }
+    .prose { font-size: 17px; }
+    .axial { font-size: 26px; margin: 32px auto; }
+    .registers { grid-template-columns: 1fr; gap: 32px; }
+    .registers .divider { height: 1px; background: linear-gradient(to right, transparent, var(--accent-dim), transparent); }
+    .genetic-key { padding: 36px 24px 32px 24px; }
+    .genetic-key .seal { position: relative; margin: 0 0 20px 0; }
+    .genetic-key::before { inset: -4px; }
+    .genetic-key h3 { font-size: 26px; }
+    .closing p { font-size: 22px; }
+  }
+
+
+/* === Part 8 - The Purpose Revealed.html === */
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% -5%, rgba(201,168,76,0.18), transparent 65%),
+      radial-gradient(ellipse 90% 60% at 50% 120%, rgba(139,26,26,0.06), transparent 70%),
+      var(--bg);
+    color: var(--fg); min-height: 100vh; position: relative;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: .55;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMjAnIGhlaWdodD0nMjIwJz48ZmlsdGVyIGlkPSdib2Utbm9pc2UnPjxmZVR1cmJ1bGVuY2UgdHlwZT0nZnJhY3RhbE5vaXNlJyBiYXNlRnJlcXVlbmN5PScuODUnIG51bU9jdGF2ZXM9JzInIHNlZWQ9JzcnLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9JzAgMCAwIDAgMC43OSAgMCAwIDAgMCAwLjY4ICAwIDAgMCAwIDAuNDUgIDAgMCAwIC4wNyAwJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoJTIzYm9lLW5vaXNlKScvPjwvc3ZnPg==");
+    mix-blend-mode: screen;
+  }
+  .bracket { position: fixed; width: 64px; height: 64px; z-index: 3; pointer-events: none; opacity: .85; }
+  .bracket.tl { top: 28px; left: 28px; }
+  .bracket.tr { top: 28px; right: 28px; transform: scaleX(-1); }
+  .bracket.bl { bottom: 28px; left: 28px; transform: scaleY(-1); }
+  .bracket.br { bottom: 28px; right: 28px; transform: scale(-1, -1); }
+  .bracket svg { width: 100%; height: 100%; display: block; }
+  .masthead {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 34px 108px 0;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--accent-dim); pointer-events: none;
+  }
+  .masthead .left, .masthead .right { display: flex; gap: 18px; align-items: center; }
+  .masthead .mark { color: var(--accent); }
+  .page { position: relative; max-width: 780px; margin: 0 auto; padding: 150px 80px 140px; z-index: 1; }
+  .section-opener { text-align: center; margin-bottom: 72px; padding: 56px 0 40px; }
+  .section-opener .num {
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.4em;
+    color: var(--accent); margin-bottom: 28px; text-transform: uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 16px;
+  }
+  .section-opener .num .glyph { color: var(--accent); }
+  .section-opener .num .rule { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent)); }
+  .section-opener .num .rule.right { background: linear-gradient(90deg, var(--accent), transparent); }
+  .section-opener h1 {
+    font-family: var(--font-display); font-size: 88px; font-weight: 300;
+    line-height: 1.02; letter-spacing: -0.015em; color: var(--fg); margin: 0; text-wrap: balance;
+  }
+  .section-opener h1 em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .section-opener .em-dash { width: 80px; height: 1px; background: var(--accent); margin: 40px auto; }
+  .section-opener .sub {
+    font-family: var(--font-display); font-style: italic; font-size: 26px;
+    color: var(--fg-muted); margin: 0; letter-spacing: 0.005em;
+  }
+  .epigraph {
+    max-width: 48ch; margin: 56px auto 88px; text-align: center;
+    font-family: var(--font-display); font-style: italic; font-size: 24px;
+    line-height: 1.5; color: var(--fg);
+  }
+  .epigraph cite {
+    display: block; margin-top: 24px; font-family: var(--font-mono);
+    font-size: 10px; letter-spacing: 0.36em; text-transform: uppercase;
+    color: var(--accent); font-style: normal;
+  }
+  .prose { font-family: var(--font-body); font-size: 19px; line-height: 1.78; color: var(--fg); }
+  .prose p { margin: 0 0 26px; text-wrap: pretty; }
+  .prose .dropcap::first-letter {
+    font-family: var(--font-display); font-size: 102px; font-weight: 400;
+    float: left; line-height: 0.82; padding: 14px 16px 0 0; color: var(--accent);
+  }
+  .prose em.greek { color: var(--accent); font-style: italic; }
+  .prose em.stress { color: var(--fg); font-style: italic; font-family: var(--font-display); font-size: 1.05em; }
+  .prose cite.ref {
+    font-family: var(--font-mono); font-size: 0.7em; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--accent-dim); font-style: normal; margin: 0 0.2em;
+  }
+  .axial {
+    display: block; margin: 44px auto; max-width: 38ch;
+    font-family: var(--font-display); font-weight: 400; font-size: 38px;
+    line-height: 1.2; color: var(--fg); text-align: center; letter-spacing: -0.005em;
+  }
+  .axial em { color: var(--accent); font-style: italic; }
+  .ornament { text-align: center; margin: 72px 0; color: var(--accent); opacity: 0.6; font-size: 14px; letter-spacing: 1em; padding-left: 1em; }
+
+  /* Single scripture tablet — Revelation 13:8 */
+  .tablet {
+    margin: 48px auto; max-width: 44ch;
+    padding: 32px 40px; text-align: center;
+    border-top: 1px solid var(--accent-dim);
+    border-bottom: 1px solid var(--accent-dim);
+  }
+  .tablet .ref {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+  }
+  .tablet p {
+    font-family: var(--font-display); font-style: italic; font-size: 22px;
+    line-height: 1.45; color: var(--fg); margin: 0;
+  }
+
+  /* Gospel triad — the three rising reversals */
+  .triad {
+    display: grid; gap: 14px; margin: 56px auto; max-width: 44ch;
+  }
+  .triad .row {
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px;
+    padding: 18px 0; border-bottom: 1px solid var(--border-soft);
+  }
+  .triad .row:last-child { border-bottom: none; }
+  .triad .from {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--fg-faint); text-align: right;
+  }
+  .triad .arrow { color: var(--accent); font-size: 14px; }
+  .triad .to {
+    font-family: var(--font-display); font-style: italic; font-size: 22px;
+    color: var(--fg); text-align: left; line-height: 1.2;
+  }
+
+  .genetic-key {
+    position: relative;
+    margin: 88px 0; padding: 48px 56px 44px 124px;
+    background: linear-gradient(180deg, rgba(201,168,76,0.045) 0%, transparent 20%, transparent 80%, rgba(201,168,76,0.03) 100%), #141414;
+    box-shadow: 0 0 0 1px #2a2a2a, inset 0 1px 0 #C9A84C, inset 0 -1px 0 #8a6f2e, 0 28px 70px -30px rgba(0,0,0,0.95);
+  }
+  .genetic-key::before { content:""; position:absolute; inset:-8px; pointer-events:none; border: 1px solid #2f2820; }
+  .genetic-key .seal { position: absolute; left: 40px; top: 48px; width: 60px; height: 60px; display: grid; place-items: center; }
+  .genetic-key .seal::after { content:""; position:absolute; inset:-9px; border: 1px solid rgba(139,26,26,0.42); border-radius: 50%; }
+  .genetic-key .seal svg { width:100%; height:100%; display:block; }
+  .genetic-key .label {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.34em;
+    text-transform: uppercase; color: var(--accent);
+    display:flex; align-items:center; gap:12px; margin-bottom: 20px;
+  }
+  .genetic-key .label .bar { flex: 0 0 32px; height:1px; background: linear-gradient(90deg,var(--accent),transparent); }
+  .genetic-key h3 {
+    font-family: var(--font-display); font-size: 34px; font-weight: 400;
+    color: var(--fg); margin: 0 0 22px; letter-spacing: -0.005em;
+    line-height: 1.18; text-wrap: pretty;
+  }
+  .genetic-key h3 em { color: var(--accent); font-weight: 500; font-style: italic; }
+  .genetic-key .why {
+    display:flex; align-items:center; gap:14px; margin: 24px 0 18px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: #8B1A1A;
+  }
+  .genetic-key .why .line { flex:1; height:1px; background:#2a2420; }
+  .genetic-key p {
+    font-family: var(--font-body); font-size: 18px; line-height: 1.7;
+    color: var(--fg-muted); margin: 0; max-width: 58ch;
+  }
+  .genetic-key p em { color: var(--fg); font-style: italic; }
+
+  /* Final closing — the one-line thesis of the whole book */
+  .finale {
+    margin: 104px 0 32px; padding: 72px 40px; text-align: center;
+    background: linear-gradient(180deg, transparent, rgba(201,168,76,0.05) 50%, transparent);
+    border-top: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+    position: relative;
+  }
+  .finale::before, .finale::after {
+    content:"◆"; position:absolute; color: var(--accent); font-size: 14px;
+    left: 50%; transform: translateX(-50%);
+  }
+  .finale::before { top: -8px; background: var(--bg); padding: 0 12px; }
+  .finale::after { bottom: -9px; background: var(--bg); padding: 0 12px; }
+  .finale p {
+    font-family: var(--font-display); font-style: italic; font-weight: 300;
+    font-size: 36px; line-height: 1.3; color: var(--fg);
+    margin: 0; max-width: 26ch; margin-inline: auto; text-wrap: balance;
+    letter-spacing: -0.005em;
+  }
+  .finale p em { color: var(--accent); font-style: italic; font-weight: 400; }
+
+  .end-mark { text-align: center; margin-top: 56px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em; color: var(--accent-dim); text-transform: uppercase; }
+  .end-mark .glyph { color: var(--accent); font-size: 14px; }
+  .end-mark .colophon { display: block; margin-top: 14px; color: var(--fg-faint); font-size: 9px; letter-spacing: 0.28em; }
+
+  @media (max-width: 820px) {
+    .masthead { padding: 20px 24px 0; font-size: 9px; }
+    .bracket { width: 44px; height: 44px; }
+    .bracket.tl, .bracket.tr { top: 16px; }
+    .bracket.tl, .bracket.bl { left: 16px; }
+    .bracket.tr, .bracket.br { right: 16px; }
+    .bracket.bl, .bracket.br { bottom: 16px; }
+    .page { padding: 110px 28px 120px; }
+    .section-opener h1 { font-size: 54px; }
+    .prose { font-size: 17px; }
+    .axial { font-size: 26px; margin: 32px auto; }
+    .genetic-key { padding: 36px 24px 32px 24px; }
+    .genetic-key .seal { position: relative; margin: 0 0 20px 0; }
+    .genetic-key::before { inset: -4px; }
+    .genetic-key h3 { font-size: 26px; }
+    .finale { padding: 48px 20px; }
+    .finale p { font-size: 26px; }
+    .triad .row { grid-template-columns: 1fr; text-align: center; gap: 6px; }
+    .triad .from, .triad .to { text-align: center; }
+    .triad .arrow { transform: rotate(90deg); }
+  }
+
+</style>
+
+</head>
+<body>
+
+<!-- ============================================================================
+     BOOK OF ELISHA · CONTROL PANEL
+     Edit the JSON below to change colors, fonts, sizes, and the logo URL.
+     The host file picks up changes when re-saved. Live UI is also exposed via
+     the Tweaks toolbar toggle (top-right of the preview).
+     ============================================================================ -->
+<script id="boe-tweaks-config">
+window.__BOE_TWEAKS = /*EDITMODE-BEGIN*/{
+  "logoUrl": "assets/wax-seal-logo.png",
+  "primaryGold": "#C9A84C",
+  "accentCrimson": "#8B1A1A",
+  "bodyTextColor": "#F5F0E8",
+  "backgroundColor": "#0d0d0d",
+  "displayFont": "Cormorant Garamond",
+  "bodyFont": "EB Garamond",
+  "monoFont": "Space Mono",
+  "navbarFontSize": 12,
+  "bodyFontSize": 18,
+  "headlineScale": 1,
+  "navWeight": 600,
+  "heroSealStyle": "diamond",
+  "heroSealSize": 140
+}/*EDITMODE-END*/;
+</script>
+<script>
+(function(){
+  // Apply tweaks to :root + body on load and on edit-mode updates.
+  function apply(t){
+    const r = document.documentElement.style;
+    r.setProperty('--tw-logo-url', "url('" + t.logoUrl + "')");
+    r.setProperty('--tw-color-gold', t.primaryGold);
+    r.setProperty('--tw-color-crimson', t.accentCrimson);
+    r.setProperty('--tw-color-parchment', t.bodyTextColor);
+    r.setProperty('--tw-color-bg', t.backgroundColor);
+    r.setProperty('--tw-font-display', '"' + t.displayFont + '", Georgia, serif');
+    r.setProperty('--tw-font-body', '"' + t.bodyFont + '", Georgia, serif');
+    r.setProperty('--tw-font-mono', '"' + t.monoFont + '", ui-monospace, monospace');
+    r.setProperty('--tw-nav-fontsize', t.navbarFontSize + 'px');
+    r.setProperty('--tw-body-fontsize', t.bodyFontSize + 'px');
+    r.setProperty('--tw-headline-scale', String(t.headlineScale));
+    r.setProperty('--tw-weight-base', String(t.navWeight));
+    r.setProperty('--bg', t.backgroundColor);
+    r.setProperty('--fg', t.bodyTextColor);
+    // Apply hero seal style + size
+    const hero = document.getElementById('boe-hero-seal');
+    if (hero) {
+      hero.style.width = (t.heroSealSize || 140) + 'px';
+      hero.style.height = (t.heroSealSize || 140) + 'px';
+      hero.dataset.style = t.heroSealStyle || 'diamond';
+      const diamond = hero.querySelector('.hero-seal-diamond');
+      const wax = hero.querySelector('.hero-seal-wax');
+      if (diamond && wax) {
+        if (t.heroSealStyle === 'none') { hero.style.display = 'none'; }
+        else { hero.style.display = 'grid'; }
+        diamond.style.display = (t.heroSealStyle === 'wax' || t.heroSealStyle === 'none') ? 'none' : 'block';
+        wax.style.display = (t.heroSealStyle === 'wax') ? 'block' : 'none';
+        if (t.heroSealStyle === 'wax') wax.setAttribute('src', t.logoUrl);
+      }
+    }
+    // Update logo image src
+    const img = document.querySelector('#homeSeal img');
+    if (img && img.getAttribute('src') !== t.logoUrl) img.setAttribute('src', t.logoUrl);
+  }
+  function init(){ apply(window.__BOE_TWEAKS); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  window.__BOE_APPLY = apply;
+})();
+</script>
+
+<!-- Scroll progress -->
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- Corner brackets -->
+<div class="bracket tl" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M2 30 L2 2 L30 2" fill="none" stroke="#C9A84C" stroke-width="1.2"/><path d="M8 22 L8 8 L22 8" fill="none" stroke="#8a6f2e" stroke-width="0.8"/></svg></div>
+<div class="bracket tr" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M2 30 L2 2 L30 2" fill="none" stroke="#C9A84C" stroke-width="1.2"/><path d="M8 22 L8 8 L22 8" fill="none" stroke="#8a6f2e" stroke-width="0.8"/></svg></div>
+<div class="bracket bl" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M2 30 L2 2 L30 2" fill="none" stroke="#C9A84C" stroke-width="1.2"/><path d="M8 22 L8 8 L22 8" fill="none" stroke="#8a6f2e" stroke-width="0.8"/></svg></div>
+<div class="bracket br" aria-hidden="true"><svg viewBox="0 0 64 64"><path d="M2 30 L2 2 L30 2" fill="none" stroke="#C9A84C" stroke-width="1.2"/><path d="M8 22 L8 8 L22 8" fill="none" stroke="#8a6f2e" stroke-width="0.8"/></svg></div>
+
+<!-- Anchor for "return to top" -->
+<a id="top" aria-hidden="true" style="position:absolute;top:0;"></a>
+
+<!-- Sticky three-zone navbar -->
+<header class="boe-nav" id="masthead" role="navigation" aria-label="Primary">
+  <div class="boe-nav__inner">
+    <!-- LEFT: wordmark + subtitle -->
+    <div class="boe-nav__left">
+      <a href="https://www.bookofelisha.org/" class="boe-nav__brand" target="_blank" rel="noopener" aria-label="Book of Elisha — open bookofelisha.org in a new tab">
+        <span class="mark">◆</span><span>Book of Elisha</span><span class="ext">↗</span>
+      </a>
+      <span class="boe-nav__divider hide-md" aria-hidden="true"></span>
+      <span class="boe-nav__subtitle hide-md">The Begotten God</span>
+    </div>
+
+    <!-- CENTER: wax seal logo, click = return to top -->
+    <a href="#top" class="boe-nav__seal" id="homeSeal" aria-label="Return to top of narrative" title="Return to top">
+      <img src="assets/wax-seal-logo.png" alt="Book of Elisha — wax seal" />
+    </a>
+
+    <!-- RIGHT: Roman-numeral part jumps (active highlights as you scroll) -->
+    <nav class="boe-nav__parts" aria-label="Jump to part">
+      <a href="#part-1" data-part="1">I</a>
+      <a href="#part-2" data-part="2">II</a>
+      <a href="#part-3" data-part="3">III</a>
+      <a href="#part-4" data-part="4">IV</a>
+      <a href="#part-5" data-part="5">V</a>
+      <a href="#part-6" data-part="6">VI</a>
+      <a href="#part-7" data-part="7">VII</a>
+      <a href="#part-8" data-part="8">VIII</a>
+    </nav>
+  </div>
+  <!-- Hidden but kept for legacy JS that reads partLabel -->
+  <span id="partLabel" hidden>The Complete Narrative</span>
+</header>
+
+<!-- Bottom pill -->
+<div class="part-pill" id="partPill" aria-hidden="true">
+  <span id="pillNum">Part I</span>
+  <span class="name" id="pillName">The Plan Before Creation</span>
+</div>
+
+<!-- ============================================================= -->
+<!-- TABLE OF CONTENTS — the front matter                          -->
+<!-- ============================================================= -->
+<section class="toc" id="toc">
+  <div id="boe-hero-seal" class="boe-hero-seal" data-style="diamond" aria-hidden="true" style="width:140px;height:140px;display:grid;place-items:center;margin:0 auto 36px;">
+    <svg class="hero-seal-diamond" viewBox="0 0 140 140" style="width:100%;height:100%;display:block;filter:drop-shadow(0 0 24px rgba(201,168,76,0.28));">
+      <circle cx="70" cy="70" r="64" fill="none" stroke="#C9A84C" stroke-width="0.7" opacity="0.45"/>
+      <circle cx="70" cy="70" r="54" fill="none" stroke="#C9A84C" stroke-width="1.2"/>
+      <circle cx="70" cy="70" r="44" fill="none" stroke="#8a6f2e" stroke-width="0.6" opacity="0.7"/>
+      <path d="M70 18 L122 70 L70 122 L18 70 Z" fill="none" stroke="#C9A84C" stroke-width="1.4"/>
+      <path d="M70 32 L108 70 L70 108 L32 70 Z" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.75"/>
+      <path d="M70 48 L92 70 L70 92 L48 70 Z" fill="#8B1A1A" fill-opacity="0.55" stroke="#8B1A1A" stroke-width="0.9"/>
+      <circle cx="70" cy="70" r="3" fill="#C9A84C"/>
+      <circle cx="70" cy="70" r="7" fill="none" stroke="#C9A84C" stroke-width="0.5" opacity="0.5"/>
+      <path d="M6 70 L14 70 M126 70 L134 70 M70 6 L70 14 M70 126 L70 134" stroke="#C9A84C" stroke-width="1" opacity="0.6"/>
+    </svg>
+    <img class="hero-seal-wax" src="assets/wax-seal-logo.png" alt="Book of Elisha wax seal" style="display:none;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 24px rgba(139,26,26,0.45));"/>
+  </div>
+  <div class="title">
+    <span class="bar"></span>
+    <span>◆ Book of Elisha · The Doctrine of Spiritual Genetics ◆</span>
+    <span class="bar right"></span>
+  </div>
+  <h1>The <em>Begotten</em> God</h1>
+  <p class="subtitle">The Complete Narrative · In Eight Parts</p>
+  <div class="emdash"></div>
+  <ol>
+    <li><a href="#part-1"><span class="roman">I</span><span class="name">The Plan Before Creation</span><span class="dot">◆</span></a></li>
+    <li><a href="#part-2"><span class="roman">II</span><span class="name">Creation and the Ordering of All Things</span><span class="dot">◆</span></a></li>
+    <li><a href="#part-3"><span class="roman">III</span><span class="name">The Fall and the Seed</span><span class="dot">◆</span></a></li>
+    <li><a href="#part-4"><span class="roman">IV</span><span class="name">The Incarnation</span><span class="dot">◆</span></a></li>
+    <li><a href="#part-5"><span class="roman">V</span><span class="name">The Cup</span><span class="dot">◆</span></a></li>
+    <li><a href="#part-6"><span class="roman">VI</span><span class="name">The Resurrection and the Glorified Form</span><span class="dot">◆</span></a></li>
+    <li><a href="#part-7"><span class="roman">VII</span><span class="name">The Inheritance</span><span class="dot">◆</span></a></li>
+    <li><a href="#part-8"><span class="roman">VIII</span><span class="name">The Purpose Revealed</span><span class="dot">◆</span></a></li>
+  </ol>
+  <div class="colophon">◆ · Begin below · ◆</div>
+</section>
+
+<!-- ============================================================= -->
+<!-- PART I · THE PLAN BEFORE CREATION -->
+<!-- ============================================================= -->
+<article class="part" id="part-1" data-part-num="I" data-part-name="The Plan Before Creation">
+
+
+  <!-- Section opener -->
+  <div class="section-opener">
+    <div class="num">
+      <span class="rule"></span>
+      <span class="glyph">◆</span>
+      <span>Part One</span>
+      <span class="glyph">◆</span>
+      <span class="rule right"></span>
+    </div>
+    <h1>The Plan Before <em>Creation</em></h1>
+    <div class="em-dash"></div>
+    <p class="sub">The Father's intention from before the foundation of the world</p>
+  </div>
+
+  <!-- Epigraph -->
+  <div class="epigraph">
+    "For those God foreknew, he also predestined to be conformed to the image of his Son, so that he would be the firstborn among many brothers."
+    <cite>— Romans 8:29</cite>
+  </div>
+
+  <!-- Prose · Opening -->
+  <div class="prose">
+    <p class="dropcap">In the beginning, before anything existed, there was the Father. Not alone in the way isolation means. Not incomplete in the way creatures are incomplete. But the uncreated source from whom all things would flow.</p>
+
+    <p>The Father's nature is love. And the nature of love is to give. To pour out. To create from one's own substance beings who share one's own kind.</p>
+  </div>
+
+  <!-- First axial beat -->
+  <div class="axial">So the Father, out of his own nature, <em>begot the Son</em>.</div>
+
+  <div class="prose">
+    <p>Not a creature. Not an emanation. Not a diminished copy. The Father begot from his own divine nature a being of the same <em class="greek">genos<span class="translit">γένος</span></em> — the same kind, the same stock, the same lineage — who possessed life in himself the way the Father possessed life in himself. The only begotten God. <em class="greek">Monogenēs theos<span class="translit">μονογενὴς θεός</span></em>.</p>
+
+    <p>The Son was the first of all the Father's works. The beginning of creation. Through this Son all things would be made.</p>
+
+    <p>But here is what is crucial to understand: the Father did not beget the Son simply to have a companion or to complete himself. The Father's nature is generative. The Father's nature is to create beings of his own kind. And the plan from the very beginning was not just one Son.</p>
+  </div>
+
+  <!-- Second axial beat — the thesis of the section -->
+  <div class="axial">The plan was <em>a family</em>.</div>
+
+  <div class="prose">
+    <p>The Father looked ahead — not in time, but in the fullness of his knowing — and saw what he intended: a race of beings who shared his divine nature. Not creatures elevated to divine status. Not angels or servants or subordinates. But genuine children of the divine <em class="greek">genos<span class="translit">γένος</span></em>. Holy spirit beings who possessed life in themselves. Who were self-existing and life-giving. Who were free to choose love and obedience because they genuinely could choose otherwise.</p>
+
+    <p>This was the Father's intention from before the foundation of the world. Not to create a kingdom of subjects. But to create a family of his own kind.</p>
+
+    <p>And so the Father commissioned the Son. The Son would be the agent of creation. The Son would bring into being the cosmos that would contain the story of redemption. The Son would become the <em class="stress">firstborn among many brethren</em> — the prototype for what all of redeemed humanity would become.</p>
+
+    <p>But first, the creation would have to fall. And the Son would have to drink a cup more bitter than death itself.</p>
+  </div>
+
+  <!-- Ornamental rule -->
+  <div class="ornament">◆ · ◆ · ◆</div>
+
+  <!-- Genetic Key -->
+  <div class="genetic-key">
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="28" fill="none" stroke="#C9A84C" stroke-width="0.9"/>
+        <circle cx="30" cy="30" r="21" fill="none" stroke="#8a6f2e" stroke-width="0.6"/>
+        <path d="M30 12 L46 30 L30 48 L14 30 Z" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <path d="M30 21 L39 30 L30 39 L21 30 Z" fill="#8B1A1A" fill-opacity="0.55" stroke="#8B1A1A" stroke-width="0.6"/>
+      </svg>
+    </div>
+    <div class="label"><span class="bar"></span><span>◆ Genetic Key · The Core Truth</span></div>
+    <h3>The Father did not beget the Son simply to have a companion — the plan from the very beginning was <em>a family of his own kind</em>.</h3>
+    <div class="why"><span class="line"></span><span>◈ Why This Matters ◈</span><span class="line"></span></div>
+    <p>We are not destined to be merely subjects or elevated creatures; we are destined to be <em>genuine children of the divine genos</em>, possessing life in ourselves — free to choose love because we are genuinely alive in the fullest sense of that word.</p>
+  </div>
+
+  <!-- Closing couplet — the axial destination -->
+  <div class="closing">
+    <p>Because love that is not freely chosen is not love. And a family created without the possibility of turning away is not a family.</p>
+  </div>
+
+  <!-- End mark -->
+  <div class="end-mark">
+    <span class="glyph">◆</span> &nbsp; End of Part One &nbsp; <span class="glyph">◆</span>
+  </div>
+
+
+</article>
+
+<!-- ============================================================= -->
+<!-- INTERLUDE — Part I → Part II                               -->
+<!-- ============================================================= -->
+<div class="interlude" aria-hidden="true">
+  <div class="triplet"><span class="d faint">◆</span><span class="d">◆</span><span class="d faint">◆</span></div>
+  <div class="diamond"></div>
+  <div class="coming">
+    Part II
+    <span class="next">Creation and the Ordering of All Things</span>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<!-- PART II · CREATION AND THE ORDERING OF ALL THINGS -->
+<!-- ============================================================= -->
+<article class="part" id="part-2" data-part-num="II" data-part-name="Creation and the Ordering of All Things">
+
+
+  <div class="section-opener">
+    <div class="num">
+      <span class="rule"></span>
+      <span class="glyph">◆</span>
+      <span>Part Two</span>
+      <span class="glyph">◆</span>
+      <span class="rule right"></span>
+    </div>
+    <h1>Creation and the Ordering of <em>All Things</em></h1>
+    <div class="em-dash"></div>
+    <p class="sub">The cosmos as the stage for a single story</p>
+  </div>
+
+  <div class="epigraph">
+    "For by him all things were created, in heaven and on earth, visible and invisible — all things were created through him and for him."
+    <cite>— Colossians 1:16</cite>
+  </div>
+
+  <!-- Opening — The Son creates as agent -->
+  <div class="prose">
+    <p class="dropcap">The Son created. Not independently. Not autonomously. But as the Father's agent — the one through whom all things came into being and for whom all things exist. <cite class="ref">Colossians 1:16 · John 1:3</cite> Everything that exists outside of the Father and the Son exists because the Son made it.</p>
+
+    <p>And within that creation the Son ordered everything around a purpose that was already decided before the first word of creation was spoken.</p>
+  </div>
+
+  <!-- First axial beat — the thesis of the section -->
+  <div class="axial">The cosmos was <em>not accidental</em>.</div>
+
+  <div class="prose">
+    <p>The stars were not random. The earth was not a side project. Everything was constructed as the stage for a specific story — the story of how clay would become Jehovah-kind.</p>
+
+    <p>Within that creation the Son placed humanity. Not as an afterthought. Not as a minor character. But as the central figure around whom the entire created order would orient itself. Made of the earth. Breathed into by the Father. Given the image of the divine — not the nature, not yet, but the <em class="stress">image</em>. The capacity to reflect what the Father is. The capacity to choose. The capacity to love.</p>
+
+    <p>Everything in the created order — the animals, the land, the seas, the heavens visible to human eyes — was placed in relation to this figure made of clay. Because this figure made of clay was the target. The one through whom the Father's plan would unfold. The one whose descendants would carry the seed that would eventually produce the child who was also the creator.</p>
+  </div>
+
+  <!-- Second axial beat — the watch -->
+  <div class="axial">The angels watched. The principalities <em>observed</em>.</div>
+
+  <div class="prose">
+    <p>The entire created order was oriented around this one question:</p>
+  </div>
+
+  <!-- Ornamental rule before the Genetic Key -->
+  <div class="ornament">◆ · ◆ · ◆</div>
+
+  <!-- Genetic Key -->
+  <div class="genetic-key">
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="28" fill="none" stroke="#C9A84C" stroke-width="0.9"/>
+        <circle cx="30" cy="30" r="21" fill="none" stroke="#8a6f2e" stroke-width="0.6"/>
+        <path d="M30 12 L46 30 L30 48 L14 30 Z" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <path d="M30 21 L39 30 L30 39 L21 30 Z" fill="#8B1A1A" fill-opacity="0.55" stroke="#8B1A1A" stroke-width="0.6"/>
+      </svg>
+    </div>
+    <div class="label"><span class="bar"></span><span>◆ Genetic Key · The Core Truth</span></div>
+    <h3>The entire created order was not accidental, but constructed specifically as the stage for one story: <em>how the clay would become Jehovah-kind</em>.</h3>
+    <div class="why"><span class="line"></span><span>◈ Why This Matters ◈</span><span class="line"></span></div>
+    <p>Humanity is not an afterthought or a minor character. We were given the <em>image of the divine</em> and the capacity to choose, because the Father's ultimate plan requires the clay to freely choose Him.</p>
+  </div>
+
+  <!-- Closing — the unanswered question -->
+  <div class="closing">
+    <p>Would the clay <em>choose the Father?</em></p>
+  </div>
+
+  <div class="end-mark">
+    <span class="glyph">◆</span> &nbsp; End of Part Two &nbsp; <span class="glyph">◆</span>
+  </div>
+
+
+</article>
+
+<!-- ============================================================= -->
+<!-- INTERLUDE — Part II → Part III                               -->
+<!-- ============================================================= -->
+<div class="interlude" aria-hidden="true">
+  <div class="triplet"><span class="d faint">◆</span><span class="d">◆</span><span class="d faint">◆</span></div>
+  <div class="diamond"></div>
+  <div class="coming">
+    Part III
+    <span class="next">The Fall and the Seed</span>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<!-- PART III · THE FALL AND THE SEED -->
+<!-- ============================================================= -->
+<article class="part" id="part-3" data-part-num="III" data-part-name="The Fall and the Seed">
+
+
+  <div class="section-opener">
+    <div class="num">
+      <span class="rule"></span>
+      <span class="glyph">◆</span>
+      <span>Part Three</span>
+      <span class="glyph">◆</span>
+      <span class="rule right"></span>
+    </div>
+    <h1>The Fall and the <em>Seed</em></h1>
+    <div class="em-dash"></div>
+    <p class="sub">A promise embedded in the lineage before the fall was permitted</p>
+  </div>
+
+  <div class="epigraph">
+    "And I will put enmity between you and the woman, and between your seed and her seed; he shall bruise your head, and you shall bruise his heel."
+    <cite>— Genesis 3:15</cite>
+  </div>
+
+  <!-- The break -->
+  <div class="prose">
+    <p class="dropcap">The clay chose against the Father.</p>
+
+    <p>Not because the Father failed. Not because the Son's creation was flawed. But because genuine choice requires the genuine possibility of choosing wrong. And the clay chose wrong.</p>
+
+    <p>The order the Son had established — humanity reflecting the divine image, creation oriented around that reflection, everything pointing toward the Father's purpose — that order was broken. Not destroyed. But broken.</p>
+
+    <p>And with that breaking came separation. The clay, which had been breathed into and given the capacity to become something more, now faced a trajectory that ended in death. Not just physical death. The death of the possibility of becoming Jehovah-kind. The death of the inheritance the Father had always intended.</p>
+  </div>
+
+  <!-- First axial beat — the pivot -->
+  <div class="axial">But within the breaking the Father <em>planted a seed</em>.</div>
+
+  <div class="prose">
+    <p>Not a plan devised in response to the fall. The seed was already there. Already embedded in the fabric of what humanity was. A biological line. A genetic thread running through the clay that would eventually produce a child unlike any other child.</p>
+
+    <p>This seed carried the possibility of everything the fall had threatened to destroy.</p>
+  </div>
+
+  <!-- Lineage chain — the thread through history -->
+  <div class="lineage" aria-label="The lineage: Noah to Abraham to David">
+    <span class="node">Noah</span>
+    <span class="line"></span>
+    <span class="node">Abraham</span>
+    <span class="line"></span>
+    <span class="node">David</span>
+  </div>
+
+  <div class="prose">
+    <p>The seed moved through generations. Through Noah. Through Abraham. Through David. Each generation carrying it forward without fully understanding what they were carrying. A promise. A thread. A biological connection to something the Father had purposed before the foundation of the world.</p>
+
+    <p>And at the appointed time — when the fullness of the preparation was complete — the seed produced its fruit.</p>
+  </div>
+
+  <!-- Second axial beat — the arrival -->
+  <div class="axial">A child. Born of a woman. Born under the Law. Born within the physical <em>genos</em> of David's line.</div>
+
+  <!-- Ornamental rule before the Genetic Key -->
+  <div class="ornament">◆ · ◆ · ◆</div>
+
+  <!-- Genetic Key -->
+  <div class="genetic-key">
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="28" fill="none" stroke="#C9A84C" stroke-width="0.9"/>
+        <circle cx="30" cy="30" r="21" fill="none" stroke="#8a6f2e" stroke-width="0.6"/>
+        <path d="M30 12 L46 30 L30 48 L14 30 Z" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <path d="M30 21 L39 30 L30 39 L21 30 Z" fill="#8B1A1A" fill-opacity="0.55" stroke="#8B1A1A" stroke-width="0.6"/>
+      </svg>
+    </div>
+    <div class="label"><span class="bar"></span><span>◆ Genetic Key · The Core Truth</span></div>
+    <h3>Within the breaking of the fall, the Father had already planted a biological seed — a <em>genetic thread</em> that carried the possibility of everything the fall threatened to destroy.</h3>
+    <div class="why"><span class="line"></span><span>◈ Why This Matters ◈</span><span class="line"></span></div>
+    <p>The plan for redemption was <em>not a panicked reaction</em> to humanity's failure. It was a promise embedded within our very physical lineage from the beginning, ensuring the clay could still become Jehovah-kind.</p>
+  </div>
+
+  <!-- Closing — cliffhanger to Part 4 -->
+  <div class="closing">
+    <p>But <em>not only that</em>.</p>
+  </div>
+
+  <div class="end-mark">
+    <span class="glyph">◆</span> &nbsp; End of Part Three &nbsp; <span class="glyph">◆</span>
+  </div>
+
+
+</article>
+
+<!-- ============================================================= -->
+<!-- INTERLUDE — Part III → Part IV                               -->
+<!-- ============================================================= -->
+<div class="interlude" aria-hidden="true">
+  <div class="triplet"><span class="d faint">◆</span><span class="d">◆</span><span class="d faint">◆</span></div>
+  <div class="diamond"></div>
+  <div class="coming">
+    Part IV
+    <span class="next">The Incarnation</span>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<!-- PART IV · THE INCARNATION -->
+<!-- ============================================================= -->
+<article class="part" id="part-4" data-part-num="IV" data-part-name="The Incarnation">
+
+
+  <div class="section-opener">
+    <div class="num">
+      <span class="rule"></span>
+      <span class="glyph">◆</span>
+      <span>Part Four</span>
+      <span class="glyph">◆</span>
+      <span class="rule right"></span>
+    </div>
+    <h1>The Incarnation — The Creator Enters the <em>Clay</em></h1>
+    <div class="em-dash"></div>
+    <p class="sub">The architect entering the building he had designed</p>
+  </div>
+
+  <div class="epigraph">
+    "For in him dwells all the fullness of the divine nature bodily."
+    <cite>— Colossians 2:9</cite>
+  </div>
+
+  <div class="prose">
+    <p class="dropcap">That child was not merely human.</p>
+
+    <p>The child born within David's line — conceived by the Holy Spirit, carried by Mary, born in Bethlehem — was the Son himself. The one through whom all things were made. The architect of creation entering the building he had designed.</p>
+
+    <p>Not a new being. Not a different being. The same Son who stood beside the Father before creation. The same one who wrestled with Jacob at Peniel. The same one whose voice commissioned Isaiah in the throne room. The same one whose goings forth were from ancient days.</p>
+  </div>
+
+  <div class="axial">Now <em>clothed in clay</em>.</div>
+
+  <div class="prose">
+    <p>Not because he needed to be saved. Not because he was broken or fallen or in need of redemption. But because we were. And the only way to purchase a race of clay was to enter the clay. To live within its limitations. To be subject to its vulnerabilities. To die within it.</p>
+
+    <p>Romans 1:3–4 describes the structure precisely. <cite class="ref">Romans 1:3–4</cite></p>
+  </div>
+
+  <!-- Two-register diptych: kata sarka / kata pneuma -->
+  <div class="registers">
+    <div class="reg">
+      <div class="label">◆ According to the Flesh</div>
+      <div class="greek">kata sarka</div>
+      <div class="translit">κατὰ σάρκα</div>
+      <p class="gloss">Of David's seed. Biologically. Genetically. The physical <em style="color:var(--accent);font-style:italic">genos</em> of the royal line.</p>
+    </div>
+    <div class="divider"></div>
+    <div class="reg">
+      <div class="label">◆ According to the Spirit of Holiness</div>
+      <div class="greek">kata pneuma hagiōsunēs</div>
+      <div class="translit">κατὰ πνεῦμα ἁγιωσύνης</div>
+      <p class="gloss">The Son of God. The Holy Spirit. The begotten Jehovah. His essential divine nature unchanged by the form he had taken on.</p>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>Two registers. One being. The creator inside the creation. The eternal inside the temporal. The life-giving Spirit inside mortal flesh.</p>
+
+    <p>Colossians 2:9 states it without qualification — in him dwelt all the fullness of divine nature bodily. <em class="stress">Not resting upon him from outside. Not added to him at baptism.</em> Dwelling in him bodily from conception. Because the Holy Spirit was not something given to Jesus. The Holy Spirit was what Jesus <em class="stress">was</em>.</p>
+
+    <p>Luke 1:35 establishes this from the beginning. The child is called holy. The child is called Son of God. Not because of anything he would later receive. But because of what caused his conception. The Holy Spirit constituted him from the first moment of his existence in the womb.</p>
+
+    <p>This is why the dove at the Jordan was not a soul-download. John the Baptist needed a sign. The Father gave John a sign. The dove descended so that John would know — <em class="stress">this is the one</em>. But Jesus did not need the Spirit added to him at thirty years old. The Spirit was what he was from before he drew his first breath in Bethlehem.</p>
+  </div>
+
+  <div class="ornament">◆ · ◆ · ◆</div>
+
+  <div class="genetic-key">
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="28" fill="none" stroke="#C9A84C" stroke-width="0.9"/>
+        <circle cx="30" cy="30" r="21" fill="none" stroke="#8a6f2e" stroke-width="0.6"/>
+        <path d="M30 12 L46 30 L30 48 L14 30 Z" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <path d="M30 21 L39 30 L30 39 L21 30 Z" fill="#8B1A1A" fill-opacity="0.55" stroke="#8B1A1A" stroke-width="0.6"/>
+      </svg>
+    </div>
+    <div class="label"><span class="bar"></span><span>◆ Genetic Key · The Core Truth</span></div>
+    <h3>The Holy Spirit was not something given to Jesus at baptism — the Holy Spirit <em>was what Jesus was</em> from the first moment of his existence in the womb.</h3>
+    <div class="why"><span class="line"></span><span>◈ Why This Matters ◈</span><span class="line"></span></div>
+    <p>The incarnation is not a divine essence descending upon an ordinary child, nor a human being elevated into godhood. <em>The Creator entered the clay without ceasing to be the Creator</em> — so that he could live the life the clay owed and die the death the clay deserved.</p>
+  </div>
+
+  <div class="closing">
+    <p>Long enough to live the life the clay owed. Long enough to die the death the clay deserved. Long enough to <em>rise in a body that would show the clay what it was always meant to become</em>.</p>
+  </div>
+
+  <div class="end-mark">
+    <span class="glyph">◆</span> &nbsp; End of Part Four &nbsp; <span class="glyph">◆</span>
+  </div>
+
+
+</article>
+
+<!-- ============================================================= -->
+<!-- INTERLUDE — Part IV → Part V                               -->
+<!-- ============================================================= -->
+<div class="interlude" aria-hidden="true">
+  <div class="triplet"><span class="d faint">◆</span><span class="d">◆</span><span class="d faint">◆</span></div>
+  <div class="diamond"></div>
+  <div class="coming">
+    Part V
+    <span class="next">The Cup</span>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<!-- PART V · THE CUP -->
+<!-- ============================================================= -->
+<article class="part" id="part-5" data-part-num="V" data-part-name="The Cup">
+
+
+  <div class="section-opener">
+    <div class="num">
+      <span class="rule"></span>
+      <span class="glyph">◆</span>
+      <span>Part Five</span>
+      <span class="glyph">◆</span>
+      <span class="rule right"></span>
+    </div>
+    <h1>The <em>Cup</em></h1>
+    <div class="em-dash"></div>
+    <p class="sub">He drank what was never his to drink</p>
+  </div>
+
+  <div class="epigraph">
+    "Feed the assembly of God which he has purchased with his own blood."
+    <cite>— Acts 20:28</cite>
+  </div>
+
+  <div class="prose">
+    <p class="dropcap">Jesus didn't need to drink it.</p>
+
+    <p>That's the part that has to be understood before anything else about the atonement makes sense. The cup wasn't for him. He was the life-giving spirit. He possessed life in himself. He could not be separated from the Father by sin because he had no sin. He could not be subject to the second death because death had no claim on him.</p>
+  </div>
+
+  <div class="axial">He drank it <em>for us</em>.</div>
+
+  <div class="prose">
+    <p>In Gethsemane he said —</p>
+  </div>
+
+  <div class="gethsemane">
+    <p>"Not my will, but yours be done."</p>
+    <cite>Luke 22:42</cite>
+  </div>
+
+  <div class="prose">
+    <p>That submission was real. The human will — the flesh register, the clay he had taken on — recoiled from what was coming. Not because he was weak. Because he was genuinely human in that register. The clay knew what was about to happen to it. And the clay <em class="stress">trembled</em>.</p>
+  </div>
+
+  <div class="axial">But the Son <em>drank the cup anyway</em>.</div>
+
+  <div class="prose">
+    <p>Because without the shedding of blood there is no remission. Because the clay that had chosen against the Father required a price. Because the only currency that could purchase a race of fallen clay and transform it into Jehovah-kind was the blood of the one who was himself Jehovah-kind.</p>
+
+    <p>Acts 20:28 — the assembly of God purchased with his own blood. <cite class="ref">Acts 20:28</cite> The Holy Spirit's own blood. The begotten Jehovah bleeding inside the clay he had taken on temporarily so that the clay could become what he is <em class="stress">permanently</em>.</p>
+  </div>
+
+  <div class="ornament">◆ · ◆ · ◆</div>
+
+  <div class="genetic-key">
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="28" fill="none" stroke="#C9A84C" stroke-width="0.9"/>
+        <circle cx="30" cy="30" r="21" fill="none" stroke="#8a6f2e" stroke-width="0.6"/>
+        <path d="M30 12 L46 30 L30 48 L14 30 Z" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <path d="M30 21 L39 30 L30 39 L21 30 Z" fill="#8B1A1A" fill-opacity="0.55" stroke="#8B1A1A" stroke-width="0.6"/>
+      </svg>
+    </div>
+    <div class="label"><span class="bar"></span><span>◆ Genetic Key · The Core Truth</span></div>
+    <h3>The only currency that could purchase a fallen race and transform it into Jehovah-kind was the blood of the one who was himself <em>Jehovah-kind</em>.</h3>
+    <div class="why"><span class="line"></span><span>◈ Why This Matters ◈</span><span class="line"></span></div>
+    <p>Jesus did not drink the cup because he was subject to death. The begotten Jehovah bled <em>inside the clay he had taken on temporarily</em>, paying the ultimate price so that the clay could become what he is permanently — the family the Father always intended.</p>
+  </div>
+
+  <div class="closing">
+    <p>That's the cup. That's why he drank it. Not for himself. <em>For the family the Father had always intended to create.</em></p>
+  </div>
+
+  <div class="end-mark">
+    <span class="glyph">◆</span> &nbsp; End of Part Five &nbsp; <span class="glyph">◆</span>
+  </div>
+
+
+</article>
+
+<!-- ============================================================= -->
+<!-- INTERLUDE — Part V → Part VI                               -->
+<!-- ============================================================= -->
+<div class="interlude" aria-hidden="true">
+  <div class="triplet"><span class="d faint">◆</span><span class="d">◆</span><span class="d faint">◆</span></div>
+  <div class="diamond"></div>
+  <div class="coming">
+    Part VI
+    <span class="next">The Resurrection and the Glorified Form</span>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<!-- PART VI · THE RESURRECTION AND THE GLORIFIED FORM -->
+<!-- ============================================================= -->
+<article class="part" id="part-6" data-part-num="VI" data-part-name="The Resurrection and the Glorified Form">
+
+
+  <div class="section-opener">
+    <div class="num">
+      <span class="rule"></span>
+      <span class="glyph">◆</span>
+      <span>Part Six</span>
+      <span class="glyph">◆</span>
+      <span class="rule right"></span>
+    </div>
+    <h1>The Resurrection and the <em>Glorified Form</em></h1>
+    <div class="em-dash"></div>
+    <p class="sub">The firstfruits · the prototype · the Parakletos</p>
+  </div>
+
+  <div class="epigraph">
+    "But now is Christ risen from the dead, and become the firstfruits of them that slept."
+    <cite>— 1 Corinthians 15:20</cite>
+  </div>
+
+  <div class="prose">
+    <p class="dropcap">He rose.</p>
+
+    <p>Not resuscitated. Not restored to the same mortal form he had inhabited for thirty-three years. Transformed. The clay that had been the temporary vehicle for the life-giving Spirit was transfigured into something that had never existed before in the created order.</p>
+  </div>
+
+  <div class="axial">A <em>glorified body</em>.</div>
+
+  <div class="prose">
+    <p>The grave clothes were folded and left behind. Not because the body was abandoned. Because the body no longer needed to be unwrapped. It had passed through its own limitations the way light passes through glass — <em class="stress">without breaking what it moves through, without being contained by what it passes through</em>.</p>
+
+    <p>The disciples touched him. Thomas put his hand in the wounds. He ate with them. He was recognizable. The same Jesus. The same being. But operating by entirely different principles. No longer subject to mortality. No longer bound by walls or distance or the ordinary constraints of embodied existence.</p>
+  </div>
+
+  <!-- Firstfruits component -->
+  <div class="firstfruits">
+    <div class="stalk" aria-hidden="true">
+      <svg viewBox="0 0 88 88">
+        <!-- single upright stalk with seven grains — the one prototype -->
+        <line x1="44" y1="82" x2="44" y2="22" stroke="#C9A84C" stroke-width="1"/>
+        <ellipse cx="44" cy="20" rx="4" ry="8" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <ellipse cx="38" cy="30" rx="3" ry="6" fill="none" stroke="#C9A84C" stroke-width="0.9" transform="rotate(-20 38 30)"/>
+        <ellipse cx="50" cy="30" rx="3" ry="6" fill="none" stroke="#C9A84C" stroke-width="0.9" transform="rotate(20 50 30)"/>
+        <ellipse cx="36" cy="42" rx="3" ry="6" fill="none" stroke="#C9A84C" stroke-width="0.9" transform="rotate(-25 36 42)"/>
+        <ellipse cx="52" cy="42" rx="3" ry="6" fill="none" stroke="#C9A84C" stroke-width="0.9" transform="rotate(25 52 42)"/>
+        <ellipse cx="35" cy="54" rx="3" ry="6" fill="none" stroke="#8a6f2e" stroke-width="0.8" transform="rotate(-28 35 54)"/>
+        <ellipse cx="53" cy="54" rx="3" ry="6" fill="none" stroke="#8a6f2e" stroke-width="0.8" transform="rotate(28 53 54)"/>
+        <!-- earth line -->
+        <line x1="22" y1="82" x2="66" y2="82" stroke="#8a6f2e" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <div class="text">
+      <strong>◆ The Firstfruits</strong>
+      The first of a coming harvest. The prototype of what the redeemed would become.
+    </div>
+    <div class="ref">1 Cor 15:20</div>
+  </div>
+
+  <div class="prose">
+    <p>He appeared for forty days. Then he ascended. Returned to his glorious form — the form he had possessed before Bethlehem, before the clay, before the cup. But now carrying something he had not carried before — <em class="stress">the marks of what he had done for us</em>. The evidence of the price he had paid.</p>
+  </div>
+
+  <div class="axial">And from that glorified form he now operates as the one <em>Parakletos</em>.</div>
+
+  <div class="prose">
+    <p>The one Spirit. The one Lord Jesus Christ leading his assembly into all truth until the consummation of all things.</p>
+  </div>
+
+  <div class="ornament">◆ · ◆ · ◆</div>
+
+  <div class="genetic-key">
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="28" fill="none" stroke="#C9A84C" stroke-width="0.9"/>
+        <circle cx="30" cy="30" r="21" fill="none" stroke="#8a6f2e" stroke-width="0.6"/>
+        <path d="M30 12 L46 30 L30 48 L14 30 Z" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <path d="M30 21 L39 30 L30 39 L21 30 Z" fill="#8B1A1A" fill-opacity="0.55" stroke="#8B1A1A" stroke-width="0.6"/>
+      </svg>
+    </div>
+    <div class="label"><span class="bar"></span><span>◆ Genetic Key · The Core Truth</span></div>
+    <h3>The resurrection was not a resuscitation of mortal flesh, but the transfiguration of the clay into a glorified body — the <em>firstfruits and prototype</em> of what the redeemed will become.</h3>
+    <div class="why"><span class="line"></span><span>◈ Why This Matters ◈</span><span class="line"></span></div>
+    <p>He returned to the glorious form he had before the incarnation, but <em>now eternally carries the marks of the price he paid</em>, operating from that glorified form as the one Parakletos leading his assembly into all truth.</p>
+  </div>
+
+  <div class="closing">
+    <p>Until the <em>consummation of all things</em>.</p>
+  </div>
+
+  <div class="end-mark">
+    <span class="glyph">◆</span> &nbsp; End of Part Six &nbsp; <span class="glyph">◆</span>
+  </div>
+
+
+</article>
+
+<!-- ============================================================= -->
+<!-- INTERLUDE — Part VI → Part VII                               -->
+<!-- ============================================================= -->
+<div class="interlude" aria-hidden="true">
+  <div class="triplet"><span class="d faint">◆</span><span class="d">◆</span><span class="d faint">◆</span></div>
+  <div class="diamond"></div>
+  <div class="coming">
+    Part VII
+    <span class="next">The Inheritance</span>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<!-- PART VII · THE INHERITANCE -->
+<!-- ============================================================= -->
+<article class="part" id="part-7" data-part-num="VII" data-part-name="The Inheritance">
+
+
+  <div class="section-opener">
+    <div class="num">
+      <span class="rule"></span>
+      <span class="glyph">◆</span>
+      <span>Part Seven</span>
+      <span class="glyph">◆</span>
+      <span class="rule right"></span>
+    </div>
+    <h1>The Inheritance — <em>Spiritual Genetics</em></h1>
+    <div class="em-dash"></div>
+    <p class="sub">The divine genos reproducing itself through the Son</p>
+  </div>
+
+  <div class="epigraph">
+    "For it became him, in bringing many sons unto glory, to make the captain of their salvation perfect through sufferings."
+    <cite>— Hebrews 2:10</cite>
+  </div>
+
+  <div class="prose">
+    <p class="dropcap">This is what it was always about.</p>
+
+    <p>Not just forgiveness. Not just extended life in the same state. Not just creatures pardoned and returned to the garden. Something far larger than any of that.</p>
+  </div>
+
+  <div class="axial">The redeemed will become <em>holy spirit beings</em>.</div>
+
+  <div class="prose">
+    <p>Not gods in the sense of independent sovereigns. Not Elohim in the sense of angels or created divine beings. But genuinely of the divine <em class="greek">genos</em>. Children who inherit the actual nature of the Father. Beings who possess life in themselves the way the Son possesses life in himself — granted, derived, but <em class="stress">genuinely possessed</em>.</p>
+
+    <p>1 Corinthians 15:45–49 traces the pattern precisely. <cite class="ref">1 Corinthians 15:45–49</cite></p>
+  </div>
+
+  <!-- Two-register diptych: first Adam / last Adam -->
+  <div class="registers">
+    <div class="reg">
+      <div class="label">◆ The First Adam</div>
+      <div class="greek">psyche zoe</div>
+      <div class="translit">ψυχὴ ζῶσα</div>
+      <div class="adam">A living soul.</div>
+      <p class="gloss">Dependent on external animation. <em>Sustained by breath breathed into clay from outside.</em></p>
+    </div>
+    <div class="divider"></div>
+    <div class="reg">
+      <div class="label">◆ The Last Adam</div>
+      <div class="greek">pneuma zōopoion</div>
+      <div class="translit">πνεῦμα ζωοποιοῦν</div>
+      <div class="adam">A life-giving spirit.</div>
+      <p class="gloss">Self-animating, self-sustaining. <em>The source rather than the recipient of life.</em></p>
+    </div>
+  </div>
+
+  <div class="axial">And we will bear the image of the <em>heavenly one</em>.</div>
+
+  <div class="prose">
+    <p>Not the image of the earthly Adam — the clay, the living soul, the dependent creature. The image of the last Adam. The glorified form. The holy spirit being. The <em class="stress">Jehovah-kind</em>.</p>
+
+    <p>This is what the Son's sacrifice purchased. Not just pardon. Transformation. Not just forgiveness of what we were. <em class="stress">Becoming what he is</em>.</p>
+
+    <p>The Father's plan from before creation was never just to save humanity from death. It was to bring many sons to glory. <cite class="ref">Hebrews 2:10</cite> To make the Son the firstborn among many brethren. <cite class="ref">Romans 8:29</cite> To produce through the Son's sacrifice a family of beings who share the Father's own nature.</p>
+  </div>
+
+  <div class="ornament">◆ · ◆ · ◆</div>
+
+  <div class="genetic-key">
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="28" fill="none" stroke="#C9A84C" stroke-width="0.9"/>
+        <circle cx="30" cy="30" r="21" fill="none" stroke="#8a6f2e" stroke-width="0.6"/>
+        <path d="M30 12 L46 30 L30 48 L14 30 Z" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <path d="M30 21 L39 30 L30 39 L21 30 Z" fill="#8B1A1A" fill-opacity="0.55" stroke="#8B1A1A" stroke-width="0.6"/>
+      </svg>
+    </div>
+    <div class="label"><span class="bar"></span><span>◆ Genetic Key · The Core Truth</span></div>
+    <h3>The Father's ultimate plan was never just to pardon creatures from death, but to reproduce the <em>divine genos</em> — bringing many sons to glory as a family of holy spirit beings.</h3>
+    <div class="why"><span class="line"></span><span>◈ Why This Matters ◈</span><span class="line"></span></div>
+    <p>The Son's sacrifice purchased <em>transformation</em>, not just forgiveness. The redeemed will bear the image of the heavenly last Adam, possessing life in themselves as genuine children of the uncreated God.</p>
+  </div>
+
+  <div class="closing">
+    <p>A race of holy spirit beings who will inhabit the New Jerusalem — outside of time, outside of mortality, outside of the limitations of clay — as <em>genuine children of the uncreated God</em>.</p>
+  </div>
+
+  <div class="end-mark">
+    <span class="glyph">◆</span> &nbsp; End of Part Seven &nbsp; <span class="glyph">◆</span>
+  </div>
+
+
+</article>
+
+<!-- ============================================================= -->
+<!-- INTERLUDE — Part VII → Part VIII                               -->
+<!-- ============================================================= -->
+<div class="interlude" aria-hidden="true">
+  <div class="triplet"><span class="d faint">◆</span><span class="d">◆</span><span class="d faint">◆</span></div>
+  <div class="diamond"></div>
+  <div class="coming">
+    Part VIII
+    <span class="next">The Purpose Revealed</span>
+  </div>
+</div>
+
+<!-- ============================================================= -->
+<!-- PART VIII · THE PURPOSE REVEALED -->
+<!-- ============================================================= -->
+<article class="part" id="part-8" data-part-num="VIII" data-part-name="The Purpose Revealed">
+
+
+  <div class="section-opener">
+    <div class="num">
+      <span class="rule"></span>
+      <span class="glyph">◆</span>
+      <span>Part Eight</span>
+      <span class="glyph">◆</span>
+      <span class="rule right"></span>
+    </div>
+    <h1>The Purpose <em>Revealed</em></h1>
+    <div class="em-dash"></div>
+    <p class="sub">The Father's nature reproducing itself through the Son</p>
+  </div>
+
+  <div class="epigraph">
+    "For whom he did foreknow, he also did predestinate to be conformed to the image of his Son, that he might be the firstborn among many brethren."
+    <cite>— Romans 8:29</cite>
+  </div>
+
+  <div class="prose">
+    <p class="dropcap">This was always the plan.</p>
+
+    <p>Not a contingency. Not a response to the fall. Not God improvising in the face of creation's failure. The fall was anticipated. The seed was already planted. The cup was already purposed. Before the foundation of the world the Lamb was slain in the foreknowledge of the Father.</p>
+  </div>
+
+  <div class="tablet">
+    <div class="ref">◆ Revelation 13:8 ◆</div>
+    <p>"The Lamb slain from the foundation of the world."</p>
+  </div>
+
+  <div class="prose">
+    <p>The Father did not beget the Son simply to have a companion. The Father did not create humanity simply to have subjects. The Father did not send the Son into the clay simply to rescue what had been lost.</p>
+  </div>
+
+  <div class="axial">The Father's purpose was always a <em>family</em>.</div>
+
+  <div class="prose">
+    <p>A race of beings who share his own nature. Who possess life in themselves. Who are genuinely free because they are genuinely alive in the fullest sense of that word. Who choose love because they have the capacity to choose otherwise. Who worship the Father not because they must but because they <em class="stress">know what he did to make them what they are</em>.</p>
+
+    <p>The Son is the firstborn among many brethren. <cite class="ref">Romans 8:29</cite> The prototype. The proof of concept. The one who showed that clay could be transformed into something of the divine kind. That mortality could be swallowed up by life. That the second death has no power over those who are born of the Spirit.</p>
+
+    <p>And at the consummation — when all things are subjected to the Son and the Son subjects himself to the Father — the Father will be all in all. <cite class="ref">1 Corinthians 15:28</cite> Not because the Son disappears. Not because the family is absorbed. But because the entire purpose of creation will have been fulfilled. The family will exist. The race of Jehovah-kind beings will be complete. The Father's nature — generative, loving, giving from his own substance — will have expressed itself fully in the existence of a family of holy spirit beings who chose him freely and are now what he always intended them to be.</p>
+  </div>
+
+  <div class="axial">That is <em>spiritual genetics</em>.</div>
+
+  <div class="prose">
+    <p>The Father's own nature reproducing itself through the Son into a family of divine kind beings who will inhabit eternity not as creatures looking up at God from below but as <em class="stress">children seated with him in the fullness of what he is</em>.</p>
+  </div>
+
+  <div class="ornament">◆ · ◆ · ◆</div>
+
+  <!-- Gospel triad -->
+  <div class="triad" aria-label="This is the Gospel">
+    <div class="row">
+      <div class="from">Not just forgiveness</div>
+      <div class="arrow">◆</div>
+      <div class="to">Transformation.</div>
+    </div>
+    <div class="row">
+      <div class="from">Not just pardon</div>
+      <div class="arrow">◆</div>
+      <div class="to">Inheritance.</div>
+    </div>
+    <div class="row">
+      <div class="from">Not just rescue from death</div>
+      <div class="arrow">◆</div>
+      <div class="to">Birth into life of the divine kind.</div>
+    </div>
+  </div>
+
+  <div class="genetic-key">
+    <div class="seal" aria-hidden="true">
+      <svg viewBox="0 0 60 60">
+        <circle cx="30" cy="30" r="28" fill="none" stroke="#C9A84C" stroke-width="0.9"/>
+        <circle cx="30" cy="30" r="21" fill="none" stroke="#8a6f2e" stroke-width="0.6"/>
+        <path d="M30 12 L46 30 L30 48 L14 30 Z" fill="none" stroke="#C9A84C" stroke-width="1"/>
+        <path d="M30 21 L39 30 L30 39 L21 30 Z" fill="#8B1A1A" fill-opacity="0.55" stroke="#8B1A1A" stroke-width="0.6"/>
+      </svg>
+    </div>
+    <div class="label"><span class="bar"></span><span>◆ Genetic Key · The Core Truth</span></div>
+    <h3>The Father's ultimate purpose was always a family — a race of beings sharing his own nature — and the fall was <em>anticipated from the foundation of the world</em>.</h3>
+    <div class="why"><span class="line"></span><span>◈ Why This Matters ◈</span><span class="line"></span></div>
+    <p>This is the true Gospel: <em>not just forgiveness, but transformation. Not just pardon, but inheritance.</em> The begotten God drank the cup so that the clay could become what he is.</p>
+  </div>
+
+  <!-- Finale — the one-line thesis of the whole book -->
+  <div class="finale">
+    <p>The begotten God drank the cup so that the clay could become <em>what he is</em>.</p>
+  </div>
+
+  <div class="end-mark">
+    <span class="glyph">◆</span> &nbsp; End of Part Eight &nbsp; <span class="glyph">◆</span>
+    <span class="colophon">◆ · Finis · The Book of Elisha · The Begotten God · ◆</span>
+  </div>
+
+
+</article>
+
+<script>
+(function(){
+  const progress = document.getElementById('progress');
+  const partLabel = document.getElementById('partLabel');
+  const pill = document.getElementById('partPill');
+  const pillNum = document.getElementById('pillNum');
+  const pillName = document.getElementById('pillName');
+  const toc = document.getElementById('toc');
+  const parts = Array.from(document.querySelectorAll('article.part'));
+
+  function onScroll(){
+    const doc = document.documentElement;
+    const scrollTop = window.scrollY;
+    const scrollHeight = doc.scrollHeight - doc.clientHeight;
+    const pct = Math.max(0, Math.min(1, scrollTop / scrollHeight));
+    progress.style.width = (pct * 100).toFixed(2) + '%';
+
+    // Find current part: the last one whose top is above viewport midline
+    const mid = scrollTop + window.innerHeight * 0.35;
+    let current = null;
+    for (const p of parts) {
+      if (p.offsetTop <= mid) current = p;
+    }
+    const tocBottom = toc.offsetTop + toc.offsetHeight;
+    if (scrollTop < tocBottom - 200) {
+      partLabel.textContent = 'The Complete Narrative';
+      pill.classList.remove('visible');
+      document.querySelectorAll('.boe-nav__parts a.is-active').forEach(a => a.classList.remove('is-active'));
+      return;
+    }
+    if (current) {
+      // Highlight active Roman numeral in navbar
+      const partIdx = parts.indexOf(current) + 1;
+      document.querySelectorAll('.boe-nav__parts a').forEach(a => {
+        a.classList.toggle('is-active', Number(a.dataset.part) === partIdx);
+      });
+      const num = current.dataset.partNum;
+      const name = current.dataset.partName;
+      partLabel.textContent = 'Part ' + num + ' · ' + name;
+      pillNum.textContent = 'Part ' + num;
+      pillName.textContent = name;
+      pill.classList.add('visible');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+
+
+
+<!-- ======================================================================
+     READER CONTROLS — visitor-facing accessibility panel.
+     Hidden by default behind a small ◆ trigger button (bottom-right).
+     Click to open; close button or click trigger again to close.
+     Contains ONLY reading aids: text size, headline scale, high-contrast.
+     The full design-config panel (colors, fonts, logo, hero seal) is
+     reserved for the editor — it shows when the Claude toolbar Tweaks
+     toggle is active, and is hidden on the live site.
+     ====================================================================== -->
+<style>
+  .boe-rc-trigger {
+    position: fixed; right: 18px; bottom: 18px; z-index: 9998;
+    width: 44px; height: 44px;
+    background: rgba(13,13,13,0.7);
+    border: 1px solid rgba(201,168,76,0.45);
+    color: #C9A84C;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px; letter-spacing: 0.08em;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: opacity .25s ease, border-color .25s ease, background .25s ease, transform .25s ease;
+    opacity: 0.45;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .boe-rc-trigger:hover, .boe-rc-trigger:focus-visible {
+    opacity: 1;
+    border-color: #C9A84C;
+    background: rgba(13,13,13,0.92);
+    outline: none;
+    transform: translateY(-1px);
+  }
+  .boe-rc-trigger[aria-expanded="true"] { opacity: 1; border-color: #C9A84C; }
+  .boe-rc-panel {
+    position: fixed; right: 18px; bottom: 72px; width: 280px; z-index: 9998;
+    background: #0d0d0d;
+    border: 1px solid rgba(201,168,76,0.5);
+    color: #F5F0E8;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    padding: 18px 18px 16px;
+    box-shadow: 0 24px 60px -10px rgba(0,0,0,.85);
+  }
+  .boe-rc-panel[hidden] { display: none; }
+  .boe-rc-panel h4 {
+    margin: 0 0 14px;
+    color: #C9A84C;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+    padding-bottom: 10px;
+  }
+  .boe-rc-row { margin-bottom: 14px; }
+  .boe-rc-row:last-child { margin-bottom: 0; }
+  .boe-rc-row label {
+    display: flex; justify-content: space-between; align-items: baseline;
+    color: #d8ba65;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 9px;
+    margin-bottom: 6px;
+  }
+  .boe-rc-row label .val { color: #F5F0E8; letter-spacing: 0.08em; }
+  .boe-rc-row input[type="range"] {
+    width: 100%;
+    accent-color: #C9A84C;
+  }
+  .boe-rc-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+    cursor: pointer;
+  }
+  .boe-rc-toggle .label {
+    color: #d8ba65;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    font-size: 9px;
+  }
+  .boe-rc-switch {
+    position: relative;
+    width: 36px; height: 18px;
+    background: #2a2a2a;
+    border: 1px solid #3d3d3d;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .boe-rc-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 12px; height: 12px;
+    background: #8a6f2e;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .boe-rc-switch[aria-checked="true"] {
+    background: rgba(201,168,76,0.15);
+    border-color: #C9A84C;
+  }
+  .boe-rc-switch[aria-checked="true"]::after {
+    transform: translateX(18px);
+    background: #C9A84C;
+  }
+  .boe-rc-reset {
+    display: block; width: 100%;
+    margin-top: 14px;
+    background: transparent;
+    border: 1px solid #3d3d3d;
+    color: #8a6f2e;
+    font-family: inherit; font-size: 9px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 8px;
+    cursor: pointer;
+    transition: color .2s ease, border-color .2s ease;
+  }
+  .boe-rc-reset:hover { color: #C9A84C; border-color: #C9A84C; }
+
+  /* High-contrast mode */
+  body.boe-hc {
+    --tw-color-text: #FFFFFF !important;
+  }
+  body.boe-hc { color: #FFFFFF !important; }
+  body.boe-hc .boe-nav__parts a,
+  body.boe-hc .boe-nav__subtitle { color: #E8C870 !important; }
+
+  @media (max-width: 480px) {
+    .boe-rc-panel { width: calc(100vw - 36px); right: 18px; }
+  }
+
+  /* Editor (Claude-side) panel — separate from reader controls */
+  #boe-edit-panel { display: none; }
+  #boe-edit-panel[data-active="true"] { display: block; }
+</style>
+
+<button id="boe-rc-trigger" class="boe-rc-trigger" aria-expanded="false" aria-controls="boe-rc-panel" aria-label="Reader controls" title="Reader controls">◆</button>
+
+<div id="boe-rc-panel" class="boe-rc-panel" role="dialog" aria-label="Reader controls" hidden>
+  <h4>◆ Reader Controls</h4>
+  <div class="boe-rc-row">
+    <label for="boe-rc-body">Text size <span class="val" id="boe-rc-body-val">17px</span></label>
+    <input id="boe-rc-body" type="range" min="14" max="24" step="1" value="17">
+  </div>
+  <div class="boe-rc-row">
+    <label for="boe-rc-headline">Headline size <span class="val" id="boe-rc-headline-val">100%</span></label>
+    <input id="boe-rc-headline" type="range" min="0.8" max="1.3" step="0.05" value="1.0">
+  </div>
+  <div class="boe-rc-row">
+    <div class="boe-rc-toggle">
+      <span class="label">High contrast</span>
+      <button class="boe-rc-switch" id="boe-rc-hc" role="switch" aria-checked="false" aria-label="Toggle high contrast"></button>
+    </div>
+  </div>
+  <button class="boe-rc-reset" id="boe-rc-reset">Reset</button>
+</div>
+
+<script>
+(function(){
+  const trigger = document.getElementById('boe-rc-trigger');
+  const panel   = document.getElementById('boe-rc-panel');
+  const bodyR   = document.getElementById('boe-rc-body');
+  const bodyV   = document.getElementById('boe-rc-body-val');
+  const headR   = document.getElementById('boe-rc-headline');
+  const headV   = document.getElementById('boe-rc-headline-val');
+  const hcBtn   = document.getElementById('boe-rc-hc');
+  const reset   = document.getElementById('boe-rc-reset');
+  const KEY     = 'boe-reader-prefs-v1';
+
+  const DEFAULTS = { body: 17, head: 1.0, hc: false };
+  let state = { ...DEFAULTS };
+  try {
+    const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (saved && typeof saved === 'object') state = { ...DEFAULTS, ...saved };
+  } catch(_){}
+
+  function persist(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(_){} }
+
+  function apply(){
+    document.documentElement.style.setProperty('--tw-body-fontsize', state.body + 'px');
+    document.documentElement.style.setProperty('--tw-headline-scale', state.head);
+    document.body.classList.toggle('boe-hc', !!state.hc);
+    bodyR.value = state.body; bodyV.textContent = state.body + 'px';
+    headR.value = state.head; headV.textContent = Math.round(state.head * 100) + '%';
+    hcBtn.setAttribute('aria-checked', state.hc ? 'true' : 'false');
+  }
+
+  function open(){ panel.hidden = false; trigger.setAttribute('aria-expanded', 'true'); }
+  function close(){ panel.hidden = true;  trigger.setAttribute('aria-expanded', 'false'); }
+
+  trigger.addEventListener('click', function(){
+    if (panel.hidden) open(); else close();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !panel.hidden) close();
+  });
+  document.addEventListener('click', function(e){
+    if (panel.hidden) return;
+    if (panel.contains(e.target) || trigger.contains(e.target)) return;
+    close();
+  });
+
+  bodyR.addEventListener('input', function(){ state.body = Number(bodyR.value); persist(); apply(); });
+  headR.addEventListener('input', function(){ state.head = Number(headR.value); persist(); apply(); });
+  hcBtn.addEventListener('click', function(){
+    state.hc = !state.hc; persist(); apply();
+  });
+  reset.addEventListener('click', function(){
+    state = { ...DEFAULTS }; persist(); apply();
+  });
+
+  apply();
+})();
+</script>
+
+<!-- ======================================================================
+     EDITOR PANEL — only shows when the Claude toolbar Tweaks toggle is on.
+     Hidden from live-site visitors. Full design controls (colors, fonts,
+     logo URL, hero seal) live here.
+     ====================================================================== -->
+<div id="boe-edit-panel" style="position:fixed;right:18px;bottom:18px;width:320px;max-height:78vh;overflow:auto;z-index:9999;background:#0d0d0d;border:1px solid #C9A84C;color:#F5F0E8;font-family:'Space Mono',monospace;font-size:11px;padding:16px 16px 14px;box-shadow:0 24px 60px -10px rgba(0,0,0,.85);">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+    <strong style="letter-spacing:.22em;color:#C9A84C;">◆ EDITOR (CLAUDE-ONLY)</strong>
+    <button id="boe-edit-close" aria-label="Close" style="background:none;border:1px solid #3d3d3d;color:#C9A84C;width:24px;height:24px;cursor:pointer;font-size:14px;line-height:1;">×</button>
+  </div>
+  <div id="boe-edit-controls"></div>
+  <div style="margin-top:10px;color:#8a6f2e;font-size:9px;letter-spacing:.18em;">Hidden from live-site visitors.</div>
+</div>
+<script>
+(function(){
+  const panel = document.getElementById('boe-edit-panel');
+  const ctrls = document.getElementById('boe-edit-controls');
+  const close = document.getElementById('boe-edit-close');
+  const config = window.__BOE_TWEAKS;
+  const labelStyle = "display:block;margin:10px 0 4px;color:#d8ba65;letter-spacing:.16em;text-transform:uppercase;font-size:9px;";
+  const inputStyle = "width:100%;background:#161616;border:1px solid #2a2a2a;color:#F5F0E8;padding:6px 8px;font-family:inherit;font-size:11px;";
+  function row(label, html){ return '<label style="'+labelStyle+'">'+label+'</label>'+html; }
+  ctrls.innerHTML =
+    row('Logo URL', '<input type="text" data-key="logoUrl" value="'+config.logoUrl+'" style="'+inputStyle+'">') +
+    row('Primary Gold', '<input type="color" data-key="primaryGold" value="'+config.primaryGold+'" style="'+inputStyle+'height:28px;">') +
+    row('Accent Crimson', '<input type="color" data-key="accentCrimson" value="'+config.accentCrimson+'" style="'+inputStyle+'height:28px;">') +
+    row('Body Text', '<input type="color" data-key="bodyTextColor" value="'+config.bodyTextColor+'" style="'+inputStyle+'height:28px;">') +
+    row('Background', '<input type="color" data-key="backgroundColor" value="'+config.backgroundColor+'" style="'+inputStyle+'height:28px;">') +
+    row('Display Font', '<input type="text" data-key="displayFont" value="'+config.displayFont+'" style="'+inputStyle+'">') +
+    row('Body Font', '<input type="text" data-key="bodyFont" value="'+config.bodyFont+'" style="'+inputStyle+'">') +
+    row('Mono Font', '<input type="text" data-key="monoFont" value="'+config.monoFont+'" style="'+inputStyle+'">') +
+    row('Navbar Font Size (px)', '<input type="number" data-key="navbarFontSize" min="9" max="20" value="'+config.navbarFontSize+'" style="'+inputStyle+'">') +
+    row('Body Font Size (px)', '<input type="number" data-key="bodyFontSize" min="14" max="26" value="'+config.bodyFontSize+'" style="'+inputStyle+'">') +
+    row('Headline Scale', '<input type="number" step="0.05" data-key="headlineScale" min="0.7" max="1.5" value="'+config.headlineScale+'" style="'+inputStyle+'">') +
+    row('Navbar Weight', '<select data-key="navWeight" style="'+inputStyle+'"><option value="400">Regular (400)</option><option value="500">Medium (500)</option><option value="600">Semibold (600)</option><option value="700">Bold (700)</option></select>') +
+    row('Hero Seal Style', '<select data-key="heroSealStyle" style="'+inputStyle+'"><option value="diamond">Gold/Crimson Diamond (original)</option><option value="wax">Wax Seal Logo</option><option value="none">Hidden</option></select>') +
+    row('Hero Seal Size (px)', '<input type="number" min="60" max="280" data-key="heroSealSize" value="'+config.heroSealSize+'" style="'+inputStyle+'">');
+  ctrls.querySelector('[data-key="navWeight"]').value = String(config.navWeight);
+  ctrls.querySelector('[data-key="heroSealStyle"]').value = config.heroSealStyle || 'diamond';
+
+  ctrls.addEventListener('input', function(e){
+    const el = e.target;
+    const key = el.dataset.key;
+    if (!key) return;
+    let val = el.type === 'checkbox' ? el.checked
+            : el.type === 'number' ? Number(el.value)
+            : el.value;
+    if (key === 'navWeight') val = Number(val);
+    config[key] = val;
+    window.__BOE_APPLY(config);
+    try {
+      window.parent.postMessage({type:'__edit_mode_set_keys', edits: { [key]: val }}, '*');
+    } catch(_){}
+  });
+
+  // Editor panel only appears when host activates edit mode (Claude toolbar Tweaks toggle).
+  // It is NEVER shown to live-site visitors.
+  window.addEventListener('message', function(e){
+    const d = e.data || {};
+    if (d.type === '__activate_edit_mode')   panel.dataset.active = 'true';
+    if (d.type === '__deactivate_edit_mode') panel.dataset.active = 'false';
+  });
+  close.addEventListener('click', function(){
+    panel.dataset.active = 'false';
+    try { window.parent.postMessage({type:'__edit_mode_dismissed'}, '*'); } catch(_){}
+  });
+  try { window.parent.postMessage({type:'__edit_mode_available'}, '*'); } catch(_){}
+})();
+</script>
+
+</body></html>
